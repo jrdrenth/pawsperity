@@ -26,6 +26,11 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+// catch all 404 page
+app.use((req, res) => {
+    res.status(404).render("404", { title: "404" });
+});
+
 // Start server to test only
 app.listen(PORT, (err) => {
     if (err) {
