@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const hbs = require("express-handlebars");
+const router = require("./controllers/router");
 
 // PORT
 const PORT = process.env.PORT || 3001;
@@ -21,15 +22,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// THIS IS JUST A TEST TO SEE IF I'M CONNECTED
-app.get("/", (req, res) => {
-    res.render("index");
-});
-
-// catch all 404 page
-app.use((req, res) => {
-    res.status(404).render("404", { title: "404" });
-});
+// Routes
+app.use(router);
 
 // Start server to test only
 app.listen(PORT, (err) => {
