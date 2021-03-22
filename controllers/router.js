@@ -6,6 +6,7 @@ router.get("/", (req, res) => {
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
+        paw: true,
     });
 });
 
@@ -14,6 +15,7 @@ router.get("/todo", (req, res) => {
     res.render("todo", {
         title: "Todo",
         pageHeader: "Todo List",
+        todo: true,
     });
 });
 
@@ -22,6 +24,7 @@ router.get("/visit", (req, res) => {
     res.render("visit", {
         title: "Visits",
         pageHeader: "Visit List",
+        visit: true,
     });
 });
 
@@ -30,6 +33,7 @@ router.get("/settings", (req, res) => {
     res.render("settings", {
         title: "Config",
         pageHeader: "Settings",
+        config: true,
     });
 });
 
