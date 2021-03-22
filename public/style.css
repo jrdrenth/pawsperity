@@ -62,6 +62,10 @@ li {
     margin: 0.3rem;
 }
 
+.margin-top {
+    margin-top: 2rem;
+}
+
 #page404 {
     font-size: 5rem;
     letter-spacing: 1rem;
