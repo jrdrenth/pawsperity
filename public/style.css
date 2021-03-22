@@ -58,6 +58,10 @@ li {
     padding: 0.5rem;
 }
 
+.card-header {
+    margin: 0.3rem;
+}
+
 #page404 {
     font-size: 5rem;
     letter-spacing: 1rem;
@@ -93,5 +97,10 @@ li {
     border: none;
     border-top: 1px solid gray;
     background-color: var(--off-white-color);
-    width: 100%;
+    width: 95%;
+}
+
+#index-title {
+    display: flex;
+    justify-content: space-between;
 }
