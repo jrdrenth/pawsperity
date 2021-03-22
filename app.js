@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const hbs = require("express-handlebars");
-const sequelize = require("./config/connection");
+const router = require("./controllers/router");
 
 // PORT
 const PORT = process.env.PORT || 3001;
@@ -22,10 +22,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// THIS IS JUST A TEST TO SEE IF I'M CONNECTED
-app.get("/", (req, res) => {
-    res.render("index");
-});
+// Routes
+app.use(router);
 
 // Start server to test only
 app.listen(PORT, (err) => {

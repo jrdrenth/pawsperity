@@ -1,0 +1,79 @@
+/* Import fira font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+:root {
+    --primary-color: #ABDEE6;
+    --secondary-color: #CBAACB;
+    --tertiary-color: #FFFFB6;
+
+    --off-white-color: #ECEAE4;
+    --white-color: #fff;
+    --dark-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-color);
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: var(--off-white-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.center { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.container-thin {
+    padding: 0.4rem;
+}
+
+.white-text {
+    color: var(--white-color);
+}
+
+#page404 {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+}
+
+#nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+
+#nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+#nav li {
+    padding: 1rem;
+}
+
