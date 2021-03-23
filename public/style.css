@@ -4,7 +4,7 @@
 :root {
     --primary-color: #ABDEE6;
     --secondary-color: #CBAACB;
-    --tertiary-color: #FFFFB6;
+    --tertiary-color: #F3B0C3;
 
     --off-white-color: #ECEAE4;
     --white-color: #fff;
@@ -50,6 +50,22 @@ li {
     color: var(--white-color);
 }
 
+.card {
+    width: 90%;
+    height: fit-content;
+    background-color: #FFCCB6;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.card-header {
+    margin: 0.3rem;
+}
+
+.margin-top {
+    margin-top: 2rem;
+}
+
 #page404 {
     font-size: 5rem;
     letter-spacing: 1rem;
@@ -77,3 +93,18 @@ li {
     padding: 1rem;
 }
 
+#add-new-pet {
+    font-size: 2rem;
+    /* background-color: var(--tertiary-color); */
+    /* border-radius: 10px; */
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid gray;
+    background-color: var(--off-white-color);
+    width: 95%;
+}
+
+#index-title {
+    display: flex;
+    justify-content: space-between;
+}
