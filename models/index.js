@@ -34,7 +34,6 @@ ServiceProvider.belongsToMany(Pet, { through: Visit, foreignKey: 'service_provid
 Visit.belongsToMany(Service, { through: ServiceProvided, foreignKey: 'visit_id' });
 Service.belongsToMany(Visit, { through: ServiceProvided, foreignKey: 'service_id' });
 
-
 module.exports = {
   Pet,
   PetType,
