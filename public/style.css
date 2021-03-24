@@ -32,6 +32,10 @@ li {
     list-style-type: none;
 }
 
+.hide {
+    display: none;
+}
+
 .center { 
     display: flex;
     justify-content: center;
@@ -104,8 +108,16 @@ li {
     justify-content: center;
 }
 
+.visit-button {
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+}
+
 #login-form {
-    margin-top: 30%;
+    margin-top: 20%;
 }
 
 #login-form-title {
@@ -158,4 +170,18 @@ li {
 #index-title {
     display: flex;
     justify-content: space-between;
+}
+
+#add-new-visit {
+    border: none;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:120px;
+    right:20px;
+    background-color: var(--secondary-color);
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: -2px 2px 3px #999;
 }
