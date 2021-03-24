@@ -4,9 +4,18 @@ const { Todo } = require('../../models/');
 
 router.post('/', async (req, res) => {
   try {
+    //// TEMPORARY ////
+    req.session.user_id = 1;
 
-    const newTodo = await Todo.create(req.body);
+    const requestedTodo = { ...req.body, user_id: req.session.user_id };
+    
+    console.log('\nNew Todo Request:');
+    console.log(requestedTodo);
+    console.log();
+
+    const newTodo = await Todo.create(requestedTodo);
     res.json(newTodo);
+
   } catch (err) {
     res.status(500).json(err);
   }
