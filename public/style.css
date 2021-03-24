@@ -127,6 +127,10 @@ input {
     background-color: transparent;
 }
 
+.size-up {
+    font-size: 1.2rem;
+}
+
 #login-form {
     margin-top: 20%;
 }
