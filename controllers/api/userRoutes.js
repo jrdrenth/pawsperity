@@ -1,6 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.status(200).json(users);
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
@@ -24,7 +34,7 @@ router.post('/', async (req, res) => {
       req.session.logged_in = true;
       res.status(200).json(newUser);
     });
-    
+
   } catch (err) {
     res.status(400).json(err);
   }

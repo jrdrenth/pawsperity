@@ -4,18 +4,17 @@ const newFormHandler = async function(event) {
   const name = document.querySelector('input[name="todo-name"]').value;
   const description = document.querySelector('textarea[name="todo-description"]').value;
 
-  await fetch(`/api/todo`, {
+  const requestBody = JSON.stringify({ name, description });
+  // console.log('\nNew Todo Request BODY:');
+  // console.log(requestBody);
+  // console.log();
+
+  const response = await fetch(`/api/todos`, {
     method: 'POST',
-    body: JSON.stringify({
-      id: 1,
-      unique_id: 1,
-      name,
-      description,
-    }),
-    headers: { 'Content-Type': 'application/json' },
+    body: requestBody,
+    headers: { 'Content-Type': 'application/json' }
   });
 
-  // document.location.replace('/todo');
 };
 
 document
