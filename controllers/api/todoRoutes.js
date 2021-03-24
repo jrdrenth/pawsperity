@@ -3,14 +3,9 @@ const { Todo } = require('../../models/');
 // const withAuth = require('../utils/auth');
 
 router.post('/', async (req, res) => {
-
-  const body = req.body;
-
   try {
 
-    const newTodo = await Todo.create({ user_id: 1, ...body  });
-
-    console.log("reached here3")
+    const newTodo = await Todo.create(req.body);
     res.json(newTodo);
   } catch (err) {
     res.status(500).json(err);
