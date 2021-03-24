@@ -32,7 +32,7 @@ Todo.init(
     is_completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: false
     }
 
   },
