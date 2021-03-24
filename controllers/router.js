@@ -1,4 +1,5 @@
 const express = require("express");
+const { Todo } = require("../models");
 const router = express.Router();
 
 // Login
@@ -43,14 +44,77 @@ router.get("/addpet", (req, res) => {
     });
 });
 
-// todo page
+// get all todos in page
+router.get("/todos", async (req, res) => {
+    try {
+        const todosData = await Todo.findAll({})
+    
+        const todos = todosData.map((todo) => todo.get({ plain: true }));
+
+        res.render("todos", {
+            title: "Todo",
+            pageHeader: "Todo List",
+            icon: "far fa-check-circle fa-2x",
+            todos
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Get single todo
+router.get("/todo/:id", async (req, res) => { 
+    try{        
+        const todoData = await Todo.findByPk(req.params.id, {})
+
+        const todo = todoData.get({ plain: true });
+
+        res.render('singleTodo', { 
+            title: "Todo",
+            pageHeader: "Todo Information",
+            icon: "far fa-check-circle fa-2x",
+            todo
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
+
+// get todo form
+
 router.get("/todo", (req, res) => {
-    res.render("todo", {
-        title: "Todo",
-        pageHeader: "Todo List",
+    res.render("todoForm", {
+        title: "Todo Form",
+        pageHeader: "Add New Todo",
         icon: "far fa-check-circle fa-2x",
     });
 });
+
+// get single post
+// router.get('/todo/:id', async (req, res) => {
+//     try {
+//       const todoData = await Todo.findByPk(req.params.id, {
+//         include: [
+//           User,
+//           {
+//             model: Comment,
+//             include: [User],
+//           },
+//         ],
+//       });
+  
+//       if (todoData) {
+//         const todo = todoData.get({ plain: true });
+  
+//         res.render('single-post', { todo });
+//       } else {
+//         res.status(404).end();
+//       }
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 // visit page
 router.get("/visit", (req, res) => {

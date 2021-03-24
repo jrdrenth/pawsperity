@@ -185,3 +185,10 @@ li {
     text-align:center;
     box-shadow: -2px 2px 3px #999;
 }
+
+.todo-button {
+    margin: auto;
+    width: 50%;
+    border: 3px solid gray;
+    padding: 10px;
+}

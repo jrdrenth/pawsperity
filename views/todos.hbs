@@ -1,0 +1,27 @@
+{{> pageheader}}
+
+<div class="todo-button flex-row justify-center">
+  <a href="/todo">➕ New Post</a>
+</div>
+
+{{#each todos}}
+<article class="card">
+  <div class="card-header flex-row justify-space-between">
+    <h2>
+      <a href="/todo/{{id}}">{{title}}</a>
+    </h2>
+    <div>
+      <h1>{{name}}</h1>
+      {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
+    </div>
+  </div>
+  <div class="card-body">
+    {{body}}
+  </div>
+</article>
+{{/each}}
+
+{{!-- ACTION NEEDED: FIX card to display tasks/todos--}}
+{{!-- ACTION NEEDED: ADD nav button to go to Todo form--}}
+{{!-- ACTION NEEDED: Only display !is_complete--}}
+{{!-- ACTION NEEDED: fix href link to edit todos and reference blog--}}
