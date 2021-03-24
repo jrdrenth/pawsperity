@@ -52,7 +52,7 @@ const User = require('./models/User');
 const Pet = require('./models/Pet');
 const PetType = require('./models/PetType');
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, (err) => {
     if (err) {
         console.log(`ERR: ${err.message}, ${err.stack}`);

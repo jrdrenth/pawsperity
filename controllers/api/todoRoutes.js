@@ -1,12 +1,17 @@
 const router = require('express').Router();
 const { Todo } = require('../../models/');
-// const withAuth = require('../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
-
-    const newTodo = await Todo.create(req.body);
+    req.session.user_id = 1;
+    
+    console.log(req.body);
+    const newTodo = await Todo.create({
+      ...req.body, user_id: req.session.user_id,
+    });
     res.json(newTodo);
+
   } catch (err) {
     res.status(500).json(err);
   }
