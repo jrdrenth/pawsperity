@@ -4,20 +4,19 @@ const app = express();
 const hbs = require("express-handlebars");
 const router = require("./controllers/router");
 const sequelize = require("./config/connection");
-const path = require('path');
-const session = require('express-session');
+const path = require("path");
+const session = require("express-session");
 
-
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const sess = {
-    secret: 'Super secret secret',
+    secret: "Super secret secret",
     cookie: {},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-      db: sequelize
-    })
+        db: sequelize,
+    }),
 };
 
 app.use(session(sess));
@@ -45,19 +44,18 @@ app.use(router);
 
 // Start server to test only
 
-app.use(require('./controllers/'));
+app.use(require("./controllers/"));
 
-const Todo = require('./models/Todo');
-const User = require('./models/User');
-const Pet = require('./models/Pet');
-const PetType = require('./models/PetType');
+const Todo = require("./models/Todo");
+const User = require("./models/User");
+const Pet = require("./models/Pet");
+const PetType = require("./models/PetType");
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, (err) => {
-    if (err) {
-        console.log(`ERR: ${err.message}, ${err.stack}`);
-    }
-    console.log(`Server started on port ${PORT}`);
+        if (err) {
+            console.log(`ERR: ${err.message}, ${err.stack}`);
+        }
+        console.log(`Server started on port ${PORT}`);
     });
 });
-

@@ -1,19 +1,19 @@
 {{> pageheader}}
 
-<div class="post card">
-  <div class="post-card-header">
-    <h2>Create New Todo</h2>
+<div class="container center">
+  <div class="post card">
+    <div class="post-card-header">
+      <h2>Create New Todo</h2>
+    </div>
+    <form id="new-todo-form" class="card-body">
+      <label class="form-label" for="todo-name">Title:</label> <br>
+      <input type="text" name="todo-name" class="form-input" /> <br>
+      <label class="form-label" for="todo-description">Description:</label> <br>
+      <textarea name="todo-description" class="form-input"></textarea> <br>
+
+      <button type="submit" class="btn submit-button"><i class="fas fa-pencil-alt"></i></i> Create</button>
+    </form>
   </div>
-  <form id="new-todo-form" class="card-body">
-    <label class="form-label" for="todo-name">Title</label>
-    <input type="text" name="todo-name" class="form-input" />
-
-    <label class="form-label" for="todo-description">Description</label>
-    <textarea name="todo-description" class="form-input"></textarea>
-
-    <button type="submit" class="btn">Create</button>
-  </form>
 </div>
 
 <script src="/js/newTodo.js"></script>
-
