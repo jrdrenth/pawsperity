@@ -26,6 +26,14 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/petdetails", (req, res) => {
+    res.render("petdetails", {
+        title: "Pet Details",
+        pageHeader: "Pet Details",
+        icon: "",
+    });
+});
+
 // Add pets
 router.get("/addpet", (req, res) => {
     res.render("addpets", {
