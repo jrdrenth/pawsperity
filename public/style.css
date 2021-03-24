@@ -32,6 +32,17 @@ li {
     list-style-type: none;
 }
 
+select,
+textarea,
+input {
+    border-color: var(--dark-color);
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    padding: 0.2rem;
+    margin: 0.5rem;
+}
+
 .hide {
     display: none;
 }
@@ -114,6 +125,10 @@ li {
     padding: 1rem;
     border-bottom: 1px solid gray;
     background-color: transparent;
+}
+
+.size-up {
+    font-size: 1.2rem;
 }
 
 #login-form {
