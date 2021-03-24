@@ -30,7 +30,7 @@ router.get("/petdetails", (req, res) => {
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
-        icon: "",
+        icon: "fas fa-info-circle fa-2x",
     });
 });
 
@@ -76,6 +76,14 @@ router.get("/setting", (req, res) => {
 
 router.get("/config", (req, res) => {
     res.redirect("settings");
+});
+
+router.get("/profile", (req, res) => {
+    res.render("profile", {
+        title: "Profile",
+        pageHeader: "Profile",
+        icon: "fas fa-user-circle",
+    });
 });
 
 module.exports = router;

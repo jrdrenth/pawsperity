@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     color: var(--dark-color);
+    line-height: 1.2rem;
 }
 
 body {
@@ -95,6 +96,12 @@ li {
 
 .form {
     padding: 1rem;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #login-form {
