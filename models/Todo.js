@@ -29,13 +29,14 @@ Todo.init(
       type: DataTypes.STRING,
       allowNull: true
     }
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'pet_type'
+    modelName: 'todo'
   }
 );
 

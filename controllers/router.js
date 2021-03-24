@@ -12,11 +12,13 @@ router.get("/", (req, res) => {
 
 // todo page
 router.get("/todo", (req, res) => {
+    console.log("reached todo page")
     res.render("todo", {
         title: "Todo",
         pageHeader: "Todo List",
         todo: true,
     });
+    
 });
 
 // visit page
