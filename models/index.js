@@ -1,13 +1,13 @@
 // import models
 const Pet = require('./Pet');
 const PetType = require('./PetType');
-const Service = require('./PetServices/Service');
-const ServiceCategory = require('./PetServices/ServiceCategory');
-const ServiceProvided = require('./PetServices/ServiceProvided');
-const ServiceProvider = require('./PetServices/ServiceProvider');
+const Service = require('./Visits/Service');
+const ServiceCategory = require('./Visits/ServiceCategory');
+const ServiceProvided = require('./Visits/ServiceProvided');
+const ServiceProvider = require('./Visits/ServiceProvider');
 const Todo = require('./Todo');
 const User = require('./User');
-const Visit = require('./PetServices/Visit');
+const Visit = require('./Visits/Visit');
 
 
 // User & Pet
