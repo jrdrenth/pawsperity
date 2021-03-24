@@ -59,11 +59,30 @@ li {
 }
 
 .card-header {
-    margin: 0.3rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
 }
 
 .margin-top {
     margin-top: 2rem;
+}
+
+.label-align {
+    width: fit-content;
+}
+
+#login-form {
+    margin-top: 30%;
+}
+
+#login-form-title {
+    margin-bottom: 30%;
+}
+
+#login-form-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 #page404 {

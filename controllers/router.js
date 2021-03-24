@@ -1,12 +1,37 @@
 const express = require("express");
 const router = express.Router();
 
+// Login
+router.get("/login", (req, res) => {
+    res.render("login", {
+        layout: "signup",
+        title: "Login",
+    });
+});
+
+// Signup
+router.get("/signup", (req, res) => {
+    res.render("signup", {
+        layout: "signup",
+        title: "Sign Up",
+    });
+});
+
 // Pets page
 router.get("/", (req, res) => {
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
-        paw: true,
+        icon: "fas fa-paw fa-2x",
+    });
+});
+
+// Add pets
+router.get("/addpet", (req, res) => {
+    res.render("addpets", {
+        title: "Add Pets",
+        pageHeader: "Add New Pets",
+        icon: "fas fa-plus fa-2x",
     });
 });
 
@@ -15,9 +40,8 @@ router.get("/todo", (req, res) => {
     res.render("todo", {
         title: "Todo",
         pageHeader: "Todo List",
-        todo: true,
+        icon: "far fa-check-circle fa-2x",
     });
-    
 });
 
 // visit page
@@ -25,7 +49,7 @@ router.get("/visit", (req, res) => {
     res.render("visit", {
         title: "Visits",
         pageHeader: "Visit List",
-        visit: true,
+        icon: "far fa-calendar-check fa-2x",
     });
 });
 
@@ -34,7 +58,7 @@ router.get("/settings", (req, res) => {
     res.render("settings", {
         title: "Config",
         pageHeader: "Settings",
-        config: true,
+        icon: "fas fa-cog fa-2x",
     });
 });
 
