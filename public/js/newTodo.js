@@ -5,22 +5,17 @@ const newFormHandler = async function(event) {
   const description = document.querySelector('textarea[name="todo-description"]').value;
 
   const requestBody = JSON.stringify({ name, description });
-  console.log('\nNew Todo Request BODY:');
-  console.log(requestBody);
-  console.log();
+  // console.log('\nNew Todo Request BODY:');
+  // console.log(requestBody);
+  // console.log();
 
   const response = await fetch(`/api/todos`, {
     method: 'POST',
     body: requestBody,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json' }
   });
 
-    // if (response.ok) {
-    //   document.location.replace('/todo');
-    // } else {
-    //   alert('failed to create post');
-    // }  
-  };
+};
 
 document
   .querySelector('#new-todo-form')
