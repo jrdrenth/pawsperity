@@ -28,6 +28,11 @@ Todo.init(
     description: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    is_completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     }
 
   },

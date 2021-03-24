@@ -7,6 +7,8 @@ const newFormHandler = async function(event) {
   await fetch(`/api/todo`, {
     method: 'POST',
     body: JSON.stringify({
+      id: 1,
+      unique_id: 1,
       name,
       description,
     }),
