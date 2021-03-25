@@ -225,3 +225,13 @@ input {
     border: 3px solid gray;
     padding: 10px;
 }
+
+#pawsperity {
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    color: #8FCACA;
+}
+
+#pawsperity i {
+    color: #55CBCD;
+}
