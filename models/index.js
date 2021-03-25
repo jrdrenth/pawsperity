@@ -26,13 +26,22 @@ Todo.belongsTo(User, { foreignKey: 'user_id' });
 ServiceCategory.hasMany(Service, { foreignKey: 'service_category_id' });
 Service.belongsTo(ServiceCategory, { foreignKey: 'service_category_id' });
 
-// Visit
+// Visit - Super Many-to-Many relationship between Pet and ServiceProvider
 Pet.belongsToMany(ServiceProvider, { through: Visit, foreignKey: 'pet_id' });
 ServiceProvider.belongsToMany(Pet, { through: Visit, foreignKey: 'service_provider_id' });
+Pet.hasMany(Visit, { foreignKey: 'pet_id' });
+Visit.belongsTo(Pet, { foreignKey: 'pet_id' });
+ServiceProvider.hasMany(Visit, { foreignKey: 'service_provider_id' });
+Visit.belongsTo(ServiceProvider, { foreignKey: 'service_provider_id' });
 
-// ServiceProvided
+// ServiceProvided - Super Many-to-Many relationship between Visit and Service
 Visit.belongsToMany(Service, { through: ServiceProvided, foreignKey: 'visit_id' });
 Service.belongsToMany(Visit, { through: ServiceProvided, foreignKey: 'service_id' });
+Visit.hasMany(ServiceProvided, { foreignKey: 'visit_id' });
+ServiceProvided.belongsTo(Visit, { foreignKey: 'visit_id' });
+Service.hasMany(ServiceProvided, { foreignKey: 'service_id' });
+ServiceProvided.belongsTo(Service, { foreignKey: 'service_id' });
+
 
 module.exports = {
   Pet,

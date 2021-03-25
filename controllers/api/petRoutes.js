@@ -83,7 +83,9 @@ router.delete('/types/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     //// TEMPORARY ////
-    req.session.user_id = 1;
+    if (req.session.user_id == null) {
+      req.session.user_id = 1;
+    }
     
     const requestedPet = { ...req.body, owner_id: req.session.user_id };
     console.log('\nNew Pet Request:');
@@ -143,7 +145,7 @@ router.get('/:id', async (req, res) => {
 
 
 // Read by user_id
-router.get('/user/:id', async (req, res) => {
+router.get('/byuserid/:id', async (req, res) => {
   try {
     console.log('\nBEFORE');
 
