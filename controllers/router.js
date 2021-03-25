@@ -172,7 +172,8 @@ router.get("/config", withAuth, (req, res) => {
     res.redirect("settings");
 });
 
-router.get("/profile", withAuth, (req, res) => {
+// Gets profile page from within settings
+router.get("/settings/profile", withAuth, (req, res) => {
     res.render("profile", {
         title: "Profile",
         pageHeader: "Profile",
