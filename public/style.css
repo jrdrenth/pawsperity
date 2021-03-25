@@ -16,7 +16,7 @@
     margin: 0;
     padding: 0;
     color: var(--dark-color);
-    line-height: 1.2rem;
+    line-height: 1.3rem;
 }
 
 body {
@@ -63,6 +63,10 @@ input {
     padding: 1rem;
 }
 
+.main-container {
+    padding-bottom: 8rem;
+}
+
 .container-thin {
     padding: 0.4rem;
 }
@@ -92,7 +96,7 @@ input {
     height: fit-content;
     background-color: #FFCCB6;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 
 .card-header {
@@ -134,6 +138,15 @@ input {
 
 .size-up {
     font-size: 1.2rem;
+}
+
+.visit-list-bg > li:nth-child(odd) {
+    /* background-color: #CCE2CB; */
+    background-color: white;
+}
+
+.visit-list {
+    padding: 1rem;
 }
 
 #login-form {
