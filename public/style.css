@@ -54,6 +54,11 @@ input {
     text-align: center;
 }
 
+.center-this {
+    margin: 0 auto;
+    width: 100%;
+}
+
 .container {
     padding: 1rem;
 }
