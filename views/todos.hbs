@@ -1,11 +1,11 @@
 {{> pageheader}}
 
   <div class="todo-button flex-row justify-center">
-    <a href="/todo">➕ New Post</a>
+    <a href="/todo">➕ New Todo</a>
   </div>
 
 <div class = "container">  
-  {{#each todos}}      
+  {{#each todosNotCompleted}}    
   <a href="/todo/{{id}}">  
 
   <div class="card center-this">
@@ -20,12 +20,33 @@
     </div>
   </div>
   </a>
-  
+
+  <br>
+  {{/each}}  
+
+  {{#each todosCompleted}}    
+  <a href="/todo/{{id}}">  
+
+  <div class="card center-this">
+    <div class="card-header flex-row justify-space-between">
+      <div>
+        <h1>{{name}}</h1>
+        {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{body}}
+    </div>
+  </div>
+  </a>
+
   <br>
   {{/each}}  
 </div>
 
 
+{{!-- ACTION NEEDED: Have the checkmark when clicked change boolean is_complete and then reload page --}}
+{{!-- ACTION NEEDED: create two different cards one for completed and for each for not completed in the div--}}
 {{!-- ACTION NEEDED: FIX card to display tasks/todos--}}
 {{!-- ACTION NEEDED: ADD nav button to go to Todo form--}}
 {{!-- ACTION NEEDED: Only display !is_complete--}}

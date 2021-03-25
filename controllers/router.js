@@ -45,17 +45,32 @@ router.get("/addpet", (req, res) => {
 });
 
 // get all todos in page
+// we have two sections where it can be completed and not completed
 router.get("/todos", async (req, res) => {
     try {
-        const todosData = await Todo.findAll({})
-    
-        const todos = todosData.map((todo) => todo.get({ plain: true }));
+        const todosNotCompletedData = await Todo.findAll({
+            // query for not completed todo in Todo models
+            where: {
+                is_completed: false,
+            }
+        });
+        const todosCompletedData = await Todo.findAll({
+            where: {
+                is_completed: true,
+            }
+        });
+
+        // serializing data to be completed or not
+        const todosNotCompleted = todosNotCompletedData.map((todo) => todo.get({ plain: true }));
+
+        const todosCompleted = todosCompletedData.map((todo) => todo.get({plain: true}));
 
         res.render("todos", {
             title: "Todo",
             pageHeader: "Todo List",
             icon: "far fa-check-circle fa-2x",
-            todos
+            todosNotCompleted,
+            todosCompleted
         });
     } catch (err) {
         res.status(500).json(err);
