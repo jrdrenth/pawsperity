@@ -5,12 +5,10 @@
   </div>
 
 <div class = "container">  
-  {{#each todos}}
-  <div class="card">
+  {{#each todos}}      
+  <a href="/todo/{{id}}">  
+  <div class="card center-this">
     <div class="card-header flex-row justify-space-between">
-      <h2>
-        <a href="/todo/{{id}}">{{title}}</a>
-      </h2>
       <div>
         <h1>{{name}}</h1>
         {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
@@ -20,6 +18,9 @@
       {{body}}
     </div>
   </div>
+  </a>
+
+  <br>
   {{/each}}  
 </div>
 
