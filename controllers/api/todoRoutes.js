@@ -57,13 +57,8 @@ router.get('/:id', async (req, res) => {
 //router.put('/:id', withAuth, async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
-    const [affectedRowCount] = await Todo.update(req.body, { where: { id: req.params.id } });
+    const todoCheck = await Todo.update(req.body, { where: { id: req.params.id } });
 
-    if (affectedRowCount > 0) {
-      res.status(200).json(affectedRowCount);
-    } else {
-      res.status(404).json(affectedRowCount);
-    }
   } catch (err) {
     res.status(500).json(err);
   }
