@@ -7,7 +7,9 @@ const { Todo } = require('../../models/');
 router.post('/', async (req, res) => {
   try {
     //// TEMPORARY ////
-    req.session.user_id = 1;
+    if (req.session.user_id == null) {
+      req.session.user_id = 1;
+    }
 
     const requestedTodo = { ...req.body, user_id: req.session.user_id };
     
