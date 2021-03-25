@@ -1,5 +1,5 @@
 const express = require("express");
-const { Todo } = require("../models");
+const { Todo, User } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
 
@@ -173,11 +173,19 @@ router.get("/config", withAuth, (req, res) => {
 });
 
 // Gets profile page from within settings
-router.get("/settings/profile", withAuth, (req, res) => {
+router.get("/settings/profile", withAuth, async (req, res) => {
+    // Grabs user id from session
+    const userID = req.session.user_id;
+    // Queries db for name, email and createdAt
+    const { name, email, createdAt } = await User.findByPk(userID);
+    // Renders page with the vars
     res.render("profile", {
         title: "Profile",
         pageHeader: "Profile",
-        icon: "fas fa-user-circle",
+        icon: "fas fa-user-circle fa-2x",
+        name,
+        email,
+        createdAt,
     });
 });
 

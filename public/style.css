@@ -149,6 +149,17 @@ input {
     padding: 1rem;
 }
 
+.profile-email-title {
+    border-bottom: 1px solid grey;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.profile-email {
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
 #login-form {
     margin-top: 20%;
 }
