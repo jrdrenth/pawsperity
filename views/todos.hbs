@@ -1,25 +1,29 @@
 {{> pageheader}}
 
-<div class="todo-button flex-row justify-center">
-  <a href="/todo">➕ New Post</a>
-</div>
+  <div class="todo-button flex-row justify-center">
+    <a href="/todo">➕ New Post</a>
+  </div>
 
-{{#each todos}}
-<article class="card">
-  <div class="card-header flex-row justify-space-between">
-    <h2>
-      <a href="/todo/{{id}}">{{title}}</a>
-    </h2>
-    <div>
-      <h1>{{name}}</h1>
-      {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
+<div class = "container">  
+  
+  {{#each todos}}
+  <div class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>
+        <a href="/todo/{{id}}">{{title}}</a>
+      </h2>
+      <div>
+        <h1>{{name}}</h1>
+        {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{body}}
     </div>
   </div>
-  <div class="card-body">
-    {{body}}
-  </div>
-</article>
-{{/each}}
+  {{/each}}  
+</div>
+
 
 {{!-- ACTION NEEDED: FIX card to display tasks/todos--}}
 {{!-- ACTION NEEDED: ADD nav button to go to Todo form--}}
