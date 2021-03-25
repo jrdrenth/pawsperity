@@ -1,6 +1,7 @@
 const express = require("express");
 const { Todo } = require("../models");
 const router = express.Router();
+const withAuth = require('../utils/auth');
 
 // Login
 router.get("/login", (req, res) => {
@@ -19,7 +20,7 @@ router.get("/signup", (req, res) => {
 });
 
 // Pets page
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
@@ -27,7 +28,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/petdetails", (req, res) => {
+router.get("/petdetails", withAuth, (req, res) => {
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
@@ -36,7 +37,7 @@ router.get("/petdetails", (req, res) => {
 });
 
 // Add pets
-router.get("/addpet", (req, res) => {
+router.get("/addpet", withAuth, (req, res) => {
     res.render("addpets", {
         title: "Add Pets",
         pageHeader: "Add New Pets",
@@ -46,7 +47,7 @@ router.get("/addpet", (req, res) => {
 
 // get all todos in page
 // we have two sections where it can be completed and not completed
-router.get("/todos", async (req, res) => {
+router.get("/todos", withAuth, async (req, res) => {
     try {
         const todosNotCompletedData = await Todo.findAll({
             // query for not completed todo in Todo models
@@ -78,7 +79,7 @@ router.get("/todos", async (req, res) => {
 });
 
 // Get single todo
-router.get("/todo/:id", async (req, res) => { 
+router.get("/todo/:id", withAuth, async (req, res) => { 
     try{        
         const todoData = await Todo.findByPk(req.params.id, {})
 
@@ -98,7 +99,7 @@ router.get("/todo/:id", async (req, res) => {
 
 // get todo form
 
-router.get("/todo", (req, res) => {
+router.get("/todo", withAuth, (req, res) => {
     res.render("todoForm", {
         title: "Todo Form",
         pageHeader: "Add New Todo",
@@ -132,7 +133,7 @@ router.get("/todo", (req, res) => {
 //   });
 
 // visit page
-router.get("/visit", (req, res) => {
+router.get("/visit", withAuth, (req, res) => {
     res.render("visit", {
         title: "Visits",
         pageHeader: "Visit List",
@@ -141,7 +142,7 @@ router.get("/visit", (req, res) => {
 });
 
 // Settings page
-router.get("/settings", (req, res) => {
+router.get("/settings", withAuth, (req, res) => {
     res.render("settings", {
         title: "Config",
         pageHeader: "Settings",
@@ -149,15 +150,15 @@ router.get("/settings", (req, res) => {
     });
 });
 
-router.get("/setting", (req, res) => {
+router.get("/setting", withAuth, (req, res) => {
     res.redirect("settings");
 });
 
-router.get("/config", (req, res) => {
+router.get("/config", withAuth, (req, res) => {
     res.redirect("settings");
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile", withAuth, (req, res) => {
     res.render("profile", {
         title: "Profile",
         pageHeader: "Profile",
