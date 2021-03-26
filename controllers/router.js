@@ -112,7 +112,6 @@ router.get("/todo/:id", withAuth, async (req, res) => {
 });
 
 // get todo form
-
 router.get("/todo", withAuth, (req, res) => {
     res.render("todoForm", {
         title: "Todo Form",
@@ -120,31 +119,6 @@ router.get("/todo", withAuth, (req, res) => {
         icon: "far fa-check-circle fa-2x",
     });
 });
-
-// get single post
-// router.get('/todo/:id', async (req, res) => {
-//     try {
-//       const todoData = await Todo.findByPk(req.params.id, {
-//         include: [
-//           User,
-//           {
-//             model: Comment,
-//             include: [User],
-//           },
-//         ],
-//       });
-
-//       if (todoData) {
-//         const todo = todoData.get({ plain: true });
-
-//         res.render('single-post', { todo });
-//       } else {
-//         res.status(404).end();
-//       }
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
 
 // visit page
 router.get("/visit", withAuth, (req, res) => {
