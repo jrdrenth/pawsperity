@@ -1,7 +1,8 @@
 const express = require("express");
-const { Todo, User, PetType } = require("../models");
+const { Todo, User, PetType, Pet } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
+const fetch = require("node-fetch");
 
 // Login
 router.get("/login", (req, res) => {
@@ -31,11 +32,44 @@ router.post("/logout", (req, res) => {
 });
 
 // Pets page
-router.get("/", withAuth, (req, res) => {
+router.get("/", withAuth, async (req, res) => {
+    // pulls in id of user to gather correct pet
+    const userID = req.session.user_id;
+    // pulls in all pets in db based off user id
+    const petlist = await Pet.findAll({
+        where: { owner_id: userID },
+    });
+    // serializes the data
+    const pets = petlist.map((pet) => pet.get({ plain: true }));
+
+    // const petTypeID = pets.map((id) => id.pet_type_id);
+
+    // // Pulls in pettype to compare
+    // const petTypes = await PetType.findAll({
+    //     where: { id: petTypeID },
+    // });
+
+    // petTypes.forEach((element) => console.log(element.dataValues.id));
+
+    // fetch // TESTING
+    const response = await fetch(
+        `http://localhost:3001/api/pets/byuserid/${userID}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+
+    console.log("\nRESPONSE HERE=========================================");
+    console.log(response.body);
+
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
         icon: "fas fa-paw fa-2x",
+        pets,
     });
 });
 

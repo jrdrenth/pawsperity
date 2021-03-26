@@ -2,7 +2,6 @@
 const express = require("express");
 const app = express();
 const hbs = require("express-handlebars");
-const router = require("./controllers/router");
 const sequelize = require("./config/connection");
 const path = require("path");
 const session = require("express-session");
@@ -40,16 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use(router);
-
-// Start server to test only
-
 app.use(require("./controllers/"));
-
-const Todo = require("./models/Todo");
-const User = require("./models/User");
-const Pet = require("./models/Pet");
-const PetType = require("./models/PetType");
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, (err) => {
