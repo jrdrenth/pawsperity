@@ -1,5 +1,5 @@
 const express = require("express");
-const { Todo, User } = require("../models");
+const { Todo, User, PetType } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
 
@@ -48,11 +48,17 @@ router.get("/petdetails", withAuth, (req, res) => {
 });
 
 // Add pets
-router.get("/addpet", withAuth, (req, res) => {
+router.get("/addpet", withAuth, async (req, res) => {
+    // Gets list of pets to be put into dropdown menu
+    const petTypes = await PetType.findAll();
+    // serializing data
+    const types = petTypes.map((type) => type.get({ plain: true }));
+
     res.render("addpets", {
         title: "Add Pets",
         pageHeader: "Add New Pets",
         icon: "fas fa-plus fa-2x",
+        types,
     });
 });
 
