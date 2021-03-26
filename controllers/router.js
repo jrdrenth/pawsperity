@@ -42,16 +42,6 @@ router.get("/", withAuth, async (req, res) => {
     // serializes the data
     const pets = petlist.map((pet) => pet.get({ plain: true }));
 
-    // const petTypeID = pets.map((id) => id.pet_type_id);
-
-    // // Pulls in pettype to compare
-    // const petTypes = await PetType.findAll({
-    //     where: { id: petTypeID },
-    // });
-
-    // petTypes.forEach((element) => console.log(element.dataValues.id));
-
-    // fetch // TESTING
     const response = await fetch(
         `http://localhost:3001/api/pets/byuserid/${userID}`,
         {
@@ -62,8 +52,10 @@ router.get("/", withAuth, async (req, res) => {
         }
     );
 
-    console.log("\nRESPONSE HERE=========================================");
-    console.log(response.body);
+    const responseText = await response.text();
+    const apiRes = JSON.parse(responseText);
+
+    console.log(apiRes);
 
     res.render("index", {
         title: "Pets",
