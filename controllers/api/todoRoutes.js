@@ -58,12 +58,14 @@ router.get('/:id', async (req, res) => {
 // Update
 //router.put('/:id', withAuth, async (req, res) => {
 router.put('/:id', async (req, res) => {
+  console.log("REACHED PUT")
   try {
     const todoCheck = await Todo.update(req.body, { where: { id: req.params.id } });
 
   } catch (err) {
     res.status(500).json(err);
   }
+  console.log("REACHED PUT")
 });
 
 

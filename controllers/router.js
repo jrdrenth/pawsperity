@@ -161,6 +161,15 @@ router.get("/visit", withAuth, (req, res) => {
     });
 });
 
+// get visit form
+router.get("/visitForm", withAuth, (req, res) => {
+    res.render("visitForm", {
+        title: "Visit Form",
+        pageHeader: "Add New Visit",
+        icon: "far fa-calendar-check fa-2x",
+    });
+});
+
 // Settings page
 router.get("/settings", withAuth, (req, res) => {
     res.render("settings", {

@@ -1,28 +1,19 @@
-
-// const h3 = document.querySelector("h3");
-// const id = document.getElementsByClassName('check');
-
-// for (i = 0; i < cb.length; i++) {
-//   console.log(cb)
-// }
-
-
-// console.log(cb.checked);
-// document.querySelector('#accept:checked') !== null
-
-// console.log(cb.value); // on
-// cb.onclick = () => {
-//   const result = cb.value;
-//   alert(result);
-// }
-
 $(document).on("click", ".accept", function() {
-  // const result = cb.value;
   const id = $(this).attr("data-id");
 
-  const newComplete = $(this).data("")
+  const is_completed = $(this).is(":checked")
 
-  // $.ajax("api/")
+console.log("Reached")
+  const response = fetch(`/api/todos/${id}`,{
+    method: 'PUT',
+    body: JSON.stringify({
+      is_completed
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  document.location.reload()
+
+
 });
 
 
@@ -30,9 +21,11 @@ $(document).on("click", ".accept", function() {
 
 //   event.preventDefault();
 
+//   console.log("HERE")
+
 //   const is_completed = document.getElementById('#accept:checked') !== null
 //   result = document.querySelector('h1')
-//   const cb = document.getElementById('accept');
+//   const cb = document.getElementsByClassName('accept');
 //   result.innerText = cb.value;
 //   console.log(cb.value)
 
@@ -51,5 +44,7 @@ $(document).on("click", ".accept", function() {
 // };
 
 // document
-//   .querySelector('#todoCB')
-//   .addEventListener('click', checkedHandler);
+//   .querySelector('input[type=checkbox]')
+//   .addEventListener('checkbox', checkedHandler);
+
+// ACTION: ge
