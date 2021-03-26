@@ -1,7 +1,8 @@
 const express = require("express");
-const { Todo, User } = require("../models");
+const { Todo, User, PetType, Pet } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
+const fetch = require("node-fetch");
 
 // Login
 router.get("/login", (req, res) => {
@@ -31,11 +32,36 @@ router.post("/logout", (req, res) => {
 });
 
 // Pets page
-router.get("/", withAuth, (req, res) => {
+router.get("/", withAuth, async (req, res) => {
+    // pulls in id of user to gather correct pet
+    const userID = req.session.user_id;
+    // pulls in all pets in db based off user id
+    const petlist = await Pet.findAll({
+        where: { owner_id: userID },
+    });
+    // serializes the data
+    const pets = petlist.map((pet) => pet.get({ plain: true }));
+
+    const response = await fetch(
+        `http://localhost:3001/api/pets/byuserid/${userID}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+
+    const responseText = await response.text();
+    const apiRes = JSON.parse(responseText);
+
+    console.log(apiRes);
+
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
         icon: "fas fa-paw fa-2x",
+        pets,
     });
 });
 
@@ -48,11 +74,17 @@ router.get("/petdetails", withAuth, (req, res) => {
 });
 
 // Add pets
-router.get("/addpet", withAuth, (req, res) => {
+router.get("/addpet", withAuth, async (req, res) => {
+    // Gets list of pets to be put into dropdown menu
+    const petTypes = await PetType.findAll();
+    // serializing data
+    const types = petTypes.map((type) => type.get({ plain: true }));
+
     res.render("addpets", {
         title: "Add Pets",
         pageHeader: "Add New Pets",
         icon: "fas fa-plus fa-2x",
+        types,
     });
 });
 
