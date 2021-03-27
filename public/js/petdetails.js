@@ -13,4 +13,8 @@ $("#cancel-option").click(() => {
 // actual removal from database
 const remove = async (e) => {
     e.preventDefault();
+
+    console.log("DELETED");
 };
+
+$("#confirm-option").click(remove);
