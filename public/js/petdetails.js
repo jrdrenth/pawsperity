@@ -13,8 +13,22 @@ $("#cancel-option").click(() => {
 // actual removal from database
 const remove = async (e) => {
     e.preventDefault();
+    // grabs id of the target event
+    const id = document
+        .querySelector("#delete-container")
+        .getAttribute("data-id");
+    // runs api delete
+    const response = await fetch(`/api/pets/${id}`, {
+        method: "DELETE",
+    });
 
-    console.log("DELETED");
+    if (response.ok) {
+        // Redirect to hom page
+        document.location.replace("/");
+    } else {
+        alert("ERR: Failed to remove pet");
+    }
 };
 
+// On click action
 $("#confirm-option").click(remove);

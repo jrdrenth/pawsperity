@@ -294,12 +294,27 @@ input {
     color: red;
 }
 
-#delete-container {
+#confirm-option,
+#cancel-option {
+    border-radius: 5px;
     background-color: white;
+}
+
+#confirm-option {
+    opacity: 0.4;
+    transition: 0.8s ease-in-out;
+}
+
+#confirm-option:hover {
+    opacity: 1;
+}
+
+#delete-container {
+    background-color: whitesmoke;
     width: 80%;
     border-radius: 5px;
     margin-top: 5rem;
-    box-shadow: 1px 1px 10px gray;
+    box-shadow: 0 5px 10px gray;
 }
 
 #delete-container h2 {
