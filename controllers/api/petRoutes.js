@@ -106,7 +106,7 @@ router.get("/", async (req, res) => {
     const pets = await Pet.findAll({
       include: [
         { model: PetType, attributes: ["name"] },
-        { model: User, attributes: ["name"] },
+        { model: User, attributes: ["name"] }
       ],
       attributes: {
         exclude: ["owner_id", "pet_type_id", "createdAt", "updatedAt"],
@@ -132,7 +132,7 @@ router.get("/:id", async (req, res) => {
             res.status(200).json(pet);
         } else {
             res.status(404).json({
-                message: `No pet found with id: ${req.params.id}`,
+                message: `No pet found with id: ${req.params.id}`
             });
         }
     } catch (err) {
@@ -148,13 +148,12 @@ router.get("/byuserid/:id", async (req, res) => {
         const pets = await Pet.findAll({
             where: { owner_id: req.params.id },
             include: [
-                { model: PetType, attributes: ["name"] },
-                { model: User, attributes: ["name"] },
+                { model: PetType, attributes: ["name"] }
             ],
             attributes: {
                 exclude: ["owner_id", "pet_type_id", "createdAt", "updatedAt"],
             },
-            order: [["id", "asc"]],
+            order: [["id", "asc"]]
         });
 
         console.log("\nAFTER\n");
