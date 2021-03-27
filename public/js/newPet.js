@@ -11,19 +11,16 @@ const addPet = async function (e) {
 
     // Formats into JSON string
     const body = JSON.stringify({ name, dob, gender, pet_type_id: type });
-
+    // fetches api
     const response = await fetch("/api/pets/", {
         method: "POST",
         body,
         headers: { "Content-Type": "application/json" },
     });
-
+    // grabs the id from the response
     const pet = await response.json();
-    console.log(pet);
 
     document.location.replace(`/petdetails/${pet.id}`);
-
-    console.log("Clicked");
 };
 
 select("#add-pet").addEventListener("click", addPet);

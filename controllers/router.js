@@ -98,12 +98,12 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
         createdAt,
     } = await Pet.findByPk(petID);
     const { name: typeName } = await PetType.findByPk(id);
-    console.log(typeName);
 
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
         icon: "fas fa-info-circle fa-2x",
+        id: petID,
         name,
         dob,
         gender,
