@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS paws_db;
-
-CREATE DATABASE paws_db;
+drop database if exists paws_db;
+create database paws_db;
