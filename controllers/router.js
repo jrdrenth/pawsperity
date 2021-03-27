@@ -33,15 +33,8 @@ router.post("/logout", (req, res) => {
 
 // Pets page
 router.get("/", withAuth, async (req, res) => {
-    // pulls in id of user to gather correct pet
     const userID = req.session.user_id;
-    // pulls in all pets in db based off user id
-    const petlist = await Pet.findAll({
-        where: { owner_id: userID },
-    });
-    // serializes the data
-    const pets = petlist.map((pet) => pet.get({ plain: true }));
-
+    // fetches api from serverside through userID
     const response = await fetch(
         `http://localhost:3001/api/pets/byuserid/${userID}`,
         {
@@ -52,16 +45,38 @@ router.get("/", withAuth, async (req, res) => {
         }
     );
 
+    // waits for response of fetch
     const responseText = await response.text();
+    // parses the response
     const apiRes = JSON.parse(responseText);
 
     console.log(apiRes);
+
+    // serialized fetch data of the pet type
+    const type = apiRes.map((type) => type.pet_type.name);
+
+    // bring in object of icons
+    const petIcons = {
+        Dog: "fas fa-dog fa-2x",
+        Cat: "fas fa-cat fa-2x",
+        Rabbit: "fas fa-carrot fa-2x",
+        Bird: "fas fa-dove fa-2x",
+        Fish: "fas fa-fish fa-2x",
+        Reptile: "fab fa-suse fa-2x",
+        Rodent: "fas fa-cheese fa-2x",
+        Dragon: "fab fa-d-and-d fa-2x",
+        Dinosaur: "fas fa-tooth fa-2x",
+        Exotic: "fas fa-hand-sparkels fa-2x",
+        Beast: "fab fa-optin-monster fa-2x",
+        null: "far fa-question-circle fa-2x",
+    };
 
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
         icon: "fas fa-paw fa-2x",
-        pets,
+        apiRes,
+        petIcon: "fas fa-paw fa-2x",
     });
 });
 

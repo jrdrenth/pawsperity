@@ -1,12 +1,12 @@
 {{> pageheader}}
 
-{{#each pets}}
+{{#each apiRes}}
 <div class="container center">
 
     <div class="card">
         <a href="/petdetails">
             <div class="card-header">
-                <i class="fas fa-dog fa-3x"></i>
+                <i class="fas fa-dog fa-2x"></i>
             </div>
             <div class="card-title">
                 <h2>{{this.name}}</h2>
@@ -27,7 +27,7 @@
     <div class="card">
         <a href="/petdetails">
             <div class="card-header">
-                <i class="fas fa-cat fa-3x"></i>
+                <i class="{{petIcon}}"></i>
             </div>
             <div class="card-title">
                 <h2>Luna</h2>

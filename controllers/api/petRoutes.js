@@ -158,8 +158,6 @@ router.get("/byuserid/:id", async (req, res) => {
         console.log("\nAFTER\n");
 
         if (pets != null) {
-            // TESTING FETCH// DELETE
-            console.log(pets.map((pet) => pet.get({ plain: true })));
             res.status(200).json(pets);
         } else {
             res.status(404).json({ message: `No pets found` });
