@@ -64,10 +64,11 @@ router.get("/", withAuth, async (req, res) => {
         ["Rodent", "fas fa-cheese fa-2x"],
         ["Dragon", "fab fa-d-and-d fa-2x"],
         ["Dinosaur", "fas fa-tooth fa-2x"],
-        ["Exotic", "fas fa-hand-sparkels fa-2x"],
+        ["Exotic", "fas fa-hand-sparkles fa-2x"],
         ["Beast", "fab fa-optin-monster fa-2x"],
         ["null", "far fa-question-circle fa-2x"],
     ]);
+    const defaultIcon = "far fa-question-circle fa-2x";
 
     // maps new apiRes with added icon property to each object in array
     const pets = apiRes.map(({ id, name, dob, gender, pet_type }) => ({
@@ -76,7 +77,7 @@ router.get("/", withAuth, async (req, res) => {
         dob,
         gender,
         pet_type,
-        icon: petIcons.get(pet_type.name),
+        icon: petIcons.get(pet_type.name) ?? defaultIcon,
     }));
 
     res.render("index", {
