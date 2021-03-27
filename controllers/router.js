@@ -159,7 +159,6 @@ router.get("/todo/:id", withAuth, async (req, res) => {
 });
 
 // get todo form
-
 router.get("/todo", withAuth, (req, res) => {
     res.render("todoForm", {
         title: "Todo Form",
@@ -168,36 +167,20 @@ router.get("/todo", withAuth, (req, res) => {
     });
 });
 
-// get single post
-// router.get('/todo/:id', async (req, res) => {
-//     try {
-//       const todoData = await Todo.findByPk(req.params.id, {
-//         include: [
-//           User,
-//           {
-//             model: Comment,
-//             include: [User],
-//           },
-//         ],
-//       });
-
-//       if (todoData) {
-//         const todo = todoData.get({ plain: true });
-
-//         res.render('single-post', { todo });
-//       } else {
-//         res.status(404).end();
-//       }
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
 // visit page
 router.get("/visit", withAuth, (req, res) => {
     res.render("visit", {
         title: "Visits",
         pageHeader: "Visit List",
+        icon: "far fa-calendar-check fa-2x",
+    });
+});
+
+// get visit form
+router.get("/visitForm", withAuth, (req, res) => {
+    res.render("visitForm", {
+        title: "Visit Form",
+        pageHeader: "Add New Visit",
         icon: "far fa-calendar-check fa-2x",
     });
 });

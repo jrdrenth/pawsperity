@@ -230,11 +230,35 @@ input {
     box-shadow: -2px 2px 3px #999;
 }
 
+.text-completed {
+    opacity: .25;
+}
+
+.text-completed:hover {
+    opacity: 1.0;
+}
+.card-completed {
+    opacity: .50;
+    width: 90%;
+    height: fit-content;
+    background-color: #FFCCB6;
+    border-radius: 5px;
+    padding: 0.3rem;
+}
+.card-completed:hover {
+    opacity: 1.0;
+}
+
 .todo-button {
     margin: auto;
     width: 50%;
     border: 3px solid gray;
     padding: 10px;
+}
+
+.completed-header{
+    margin: auto;
+    width: 20%;
 }
 
 #pawsperity {

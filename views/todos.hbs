@@ -1,8 +1,8 @@
 {{> pageheader}}
 
-  <div class="todo-button flex-row justify-center">
-    <a href="/todo">➕ New Todo</a>
-  </div>
+<div class="todo-button flex-row justify-center">
+  <a href="/todo">➕ New Todo</a>
+</div>
 
 <div class = "container">  
   {{#each todosNotCompleted}}    
@@ -11,27 +11,8 @@
   <div class="card center-this">
     <div class="card-header flex-row justify-space-between">
       <div>
-        <h1>{{name}}</h1>
-        {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
-      </div>
-    </div>
-    <div class="card-body">
-      {{body}}
-    </div>
-  </div>
-  </a>
-
-  <br>
-  {{/each}}  
-
-  {{#each todosCompleted}}    
-  <a href="/todo/{{id}}">  
-
-  <div class="card center-this">
-    <div class="card-header flex-row justify-space-between">
-      <div>
-        <h1>{{name}}</h1>
-        {{!-- todo {{User.username}} on {{format_date createdAt}} --}}
+        <h3>{{name}}</h3>       
+        <input type="checkbox" class="accept" data-id={{id}} data-newcomplete= {{is_completed}}/>
       </div>
     </div>
     <div class="card-body">
@@ -44,10 +25,39 @@
   {{/each}}  
 </div>
 
+<div class= "completed-header">
+  <h2>Completed</h2>
+</div>
+<div class = "container">  
+  {{#each todosCompleted}}    
+  <a href="/todo/{{id}}">  
+
+  <div class="card-completed center-this">
+    <div class="card-header flex-row justify-space-between text-completed">
+      <div class="todoCB">
+        <h3>{{name}}</h3>
+        <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
+        {{#if is_completed}} Completed {{else}} incomplete {{/if}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{body}}
+    </div>
+  </div>
+  </a>
+
+  <br>
+  {{/each}}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script src="/js/checked.js"></script>
+
 
 {{!-- ACTION NEEDED: Have the checkmark when clicked change boolean is_complete and then reload page --}}
 {{!-- ACTION NEEDED: create two different cards one for completed and for each for not completed in the div--}}
-{{!-- ACTION NEEDED: FIX card to display tasks/todos--}}
-{{!-- ACTION NEEDED: ADD nav button to go to Todo form--}}
+{{!-- ACTION NEEDED: FIX card to display date--}}
+
 {{!-- ACTION NEEDED: Only display !is_complete--}}
 {{!-- ACTION NEEDED: fix href link to edit todos and reference blog--}}
