@@ -50,26 +50,26 @@ router.get("/", withAuth, async (req, res) => {
     // parses the response
     const apiRes = JSON.parse(responseText);
 
-    console.log(apiRes);
+    // console.log(apiRes);
 
-    // serialized fetch data of the pet type
-    const type = apiRes.map((type) => type.pet_type.name);
+    // // serialized fetch data of the pet type
+    // const type = apiRes.map((type) => type.pet_type.name);
 
-    // bring in object of icons
-    const petIcons = {
-        Dog: "fas fa-dog fa-2x",
-        Cat: "fas fa-cat fa-2x",
-        Rabbit: "fas fa-carrot fa-2x",
-        Bird: "fas fa-dove fa-2x",
-        Fish: "fas fa-fish fa-2x",
-        Reptile: "fab fa-suse fa-2x",
-        Rodent: "fas fa-cheese fa-2x",
-        Dragon: "fab fa-d-and-d fa-2x",
-        Dinosaur: "fas fa-tooth fa-2x",
-        Exotic: "fas fa-hand-sparkels fa-2x",
-        Beast: "fab fa-optin-monster fa-2x",
-        null: "far fa-question-circle fa-2x",
-    };
+    // // bring in object of icons
+    // const petIcons = {
+    //     Dog: "fas fa-dog fa-2x",
+    //     Cat: "fas fa-cat fa-2x",
+    //     Rabbit: "fas fa-carrot fa-2x",
+    //     Bird: "fas fa-dove fa-2x",
+    //     Fish: "fas fa-fish fa-2x",
+    //     Reptile: "fab fa-suse fa-2x",
+    //     Rodent: "fas fa-cheese fa-2x",
+    //     Dragon: "fab fa-d-and-d fa-2x",
+    //     Dinosaur: "fas fa-tooth fa-2x",
+    //     Exotic: "fas fa-hand-sparkels fa-2x",
+    //     Beast: "fab fa-optin-monster fa-2x",
+    //     null: "far fa-question-circle fa-2x",
+    // };
 
     res.render("index", {
         title: "Pets",
@@ -80,11 +80,28 @@ router.get("/", withAuth, async (req, res) => {
     });
 });
 
-router.get("/petdetails", withAuth, (req, res) => {
+// petdetails
+router.get("/petdetails/:id", withAuth, async (req, res) => {
+    const petID = req.params.id;
+    const {
+        pet_type_id: id,
+        name,
+        dob,
+        gender,
+        createdAt,
+    } = await Pet.findByPk(petID);
+    const { name: typeName } = await PetType.findByPk(id);
+    console.log(typeName);
+
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
         icon: "fas fa-info-circle fa-2x",
+        name,
+        dob,
+        gender,
+        createdAt,
+        typeName,
     });
 });
 
