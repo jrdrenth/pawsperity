@@ -6,6 +6,7 @@ $(document).ready(() => {
         // Runs edit functions
         const edit = async (e) => {
             e.preventDefault();
+            $("#edit-popup").slideToggle();
             console.log("Clicked");
         };
 

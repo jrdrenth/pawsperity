@@ -99,6 +99,8 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
     } = await Pet.findByPk(petID);
     const { name: typeName } = await PetType.findByPk(id);
 
+    const allPetTypes = await PetType.findAll();
+
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
