@@ -1,16 +1,16 @@
 // opens confirmation box
-const removePet = (e) => {
-    e.preventDefault();
+$("#remove-pet").click(() => {
     $("#delete-container").slideToggle();
     $("#remove-pet").slideUp();
-};
+});
 
-// cancels confirmation box
-const cancelRemove = (e) => {
-    e.preventDefault();
+// Cancels confirmation box
+$("#cancel-option").click(() => {
     $("#delete-container").slideUp();
     $("#remove-pet").slideToggle();
-};
+});
 
-$("#remove-pet").click(removePet);
-$("#cancel-option").click(cancelRemove);
+// actual removal from database
+const remove = async (e) => {
+    e.preventDefault();
+};
