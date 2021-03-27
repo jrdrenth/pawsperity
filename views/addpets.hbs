@@ -4,17 +4,17 @@
     <div class="card">
         <form class="form">
             <label for="pet-name">Pet Name:</label><br>
-            <input type="text">
+            <input type="text" name="pet-name">
 
             <div class="break"></div>
 
             <label for="pet-dob">DOB:</label><br>
-            <input type="date">
+            <input type="date" name="pet-dob">
 
             <div class="break"></div>
 
             <label for="gender">Gender:</label><br>
-            <select name="gender" id="add-gender">
+            <select name="pet-gender" id="add-gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -23,18 +23,21 @@
             <div class="break"></div>
 
             <label for="pettype">Pet Type:</label><br>
-            <select name="pettype" id="pet-type">
+            <select name="pet-type" id="pet-type">
                 {{#each types}}
-                <option value="{{this.name}}">{{this.name}}</option>
+                <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}
             </select>
 
             <div class="break"></div>
-        </form>
 
-        <a href="#" class="my-button size-up"><i class="fas fa-check"></i>&nbsp;Add Now</a>
-        <a href="/" class="my-button size-up"><i class="fas fa-times"></i>&nbsp;Cancel</a>
+            <button type="submit" class="my-button size-up" id="add-pet"><i class="fas fa-check"></i>&nbsp;Add
+                Now</button>
+            <a href="/" class="my-button size-up"><i class="fas fa-times"></i>&nbsp;Cancel</a>
+        </form>
 
         <div class="break"></div>
     </div>
 </div>
+
+<script src="/js/newPet.js"></script>
