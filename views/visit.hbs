@@ -1,43 +1,27 @@
 {{> pageheader}}
 
-<div class="todo-button flex-row justify-center">
-  <a href="/visitForm">➕ New Visit</a>
-</div>
-
 <div class="container center">
     <button class="visit-button" id="visit-today">
         <h1>TODAY <i class="fas fa-chevron-down"></i></h1>
         <br>
         <div class="hide">
             <ul>
+                {{#each todayVisits}}
                 <li>
                     <div class="card center-this">
                         <div class="card-title">
-                            VISIT DATE
+                            {{dataValues.date_time}}
                         </div>
                         <div class="card-body">
-                            VISIT TYPE
+                            {{dataValues.title}}
                         </div>
                         <div class="card-footer">
-                            VISIT NOTES ?????
+                            {{dataValues.notes}}
                         </div>
                     </div>
                     <br>
                 </li>
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            03/24/2021
-                        </div>
-                        <div class="card-body">
-                            Grooming
-                        </div>
-                        <div class="card-footer">
-                            Go get groomed you dirty
-                        </div>
-                    </div>
-                    <br>
-                </li>
+                {{/each}}
             </ul>
         </div>
     </button>
@@ -49,34 +33,23 @@
         <br>
         <div class="hide">
             <ul>
+                {{#each upcomingVisits}}
                 <li>
                     <div class="card center-this">
                         <div class="card-title">
-                            06/01/2021
+                            {{dataValues.date_time}}
                         </div>
                         <div class="card-body">
-                            PLAYHOUSE
+                            {{dataValues.title}}
                         </div>
                         <div class="card-footer">
-                            HAVING FUN IN THE SUN
+                            {{dataValues.notes}}
                         </div>
                     </div>
                     <br>
                 </li>
+                {{/each}}
                 <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            07/04/2021
-                        </div>
-                        <div class="card-body">
-                            BUNKER
-                        </div>
-                        <div class="card-footer">
-                            HIDE IN A BUNKER CAUSE FIREWORKS SUCKS
-                        </div>
-                    </div>
-                    <br>
-                </li>
             </ul>
         </div>
     </button>
@@ -88,68 +61,29 @@
         <br>
         <div class="hide">
             <ul>
+                {{#each pastVisits}}
                 <li>
                     <div class="card center-this">
                         <div class="card-title">
-                            03/22/2021
+                            {{dataValues.date_time}}
                         </div>
                         <div class="card-body">
-                            VET
+                            {{dataValues.title}}
                         </div>
                         <div class="card-footer">
-                            DOGGIE A-OKAY
+                            {{dataValues.notes}}
                         </div>
                     </div>
                     <br>
                 </li>
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            03/02/2021
-                        </div>
-                        <div class="card-body">
-                            SPA DAY
-                        </div>
-                        <div class="card-footer">
-                            Love spa day
-                        </div>
-                    </div>
-                    <br>
-                </li>
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            03/03/2021
-                        </div>
-                        <div class="card-body">
-                            Wacky Park
-                        </div>
-                        <div class="card-footer">
-                            Park lovers unite!
-                        </div>
-                    </div>
-                    <br>
-                </li>
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            03/03/2021
-                        </div>
-                        <div class="card-body">
-                            Dentist
-                        </div>
-                        <div class="card-footer">
-                            Doggie treats go dentist
-                        </div>
-                    </div>
-                    <br>
-                </li>
+                {{/each}}
             </ul>
         </div>
     </button>
 </div>
 
-<button id="add-new-visit"><i class="fas fa-edit fa-2x"></i></button>
+{{!-- <button id="add-new-visit"><i class="fas fa-edit fa-2x"></i></button> --}}
+<button id="add-new-visit"><a href="/visitForm"><i class="fas fa-edit fa-2x"></i></a></button>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

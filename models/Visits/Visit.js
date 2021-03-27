@@ -15,7 +15,8 @@ Visit.init(
     },
     pet_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // CHANGE to false when implemented
+      allowNull: true,
       references: {
         model: 'pet',
         key: 'id'
@@ -23,7 +24,8 @@ Visit.init(
     },
     service_provider_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // CHANGE to false when implemented
+      allowNull: true,
       references: {
         model: 'service_provider',
         key: 'id'
@@ -43,6 +45,7 @@ Visit.init(
     },
     is_completed: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: false
     },
     total_cost: {

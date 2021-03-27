@@ -1,21 +1,19 @@
 const newFormHandler = async function(event) {
   event.preventDefault();
 
-  const name = document.querySelector('input[name="visit-name"]').value;
-  
-  const date = document.querySelector('input[name="visit-date"]').value;
+  const title = document.querySelector('input[name="visit-name"]').value;
+  const date_time = document.querySelector('input[name="visit-date"]').value;
+  const notes = document.querySelector('textarea[name="visit-description"]').value;
+  console.log(date_time);
+  const requestBody = JSON.stringify({ title, date_time, notes });
 
-  const description = document.querySelector('textarea[name="visit-description"]').value;
-
-  const requestBody = JSON.stringify({ name, date, description });
-
-  const response = await fetch(`/api/todos`, {
+  const response = await fetch(`/api/visits`, {
     method: 'POST',
     body: requestBody,
     headers: { 'Content-Type': 'application/json' }
   });
 
-  document.location.replace('/todos');
+  document.location.replace('/visit');
 };
 
 document

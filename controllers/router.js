@@ -1,8 +1,10 @@
 const express = require("express");
-const { Todo, User, PetType, Pet } = require("../models");
+const { Todo, User, PetType, Pet, Visit } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
+const { sequelize } = require("../models/Pet");
+// const { Sequelize } = require("sequelize/types");
 
 // Login
 router.get("/login", (req, res) => {
@@ -93,7 +95,7 @@ router.get("/addpet", withAuth, async (req, res) => {
 router.get("/todos", withAuth, async (req, res) => {
     try {
         const todosNotCompletedData = await Todo.findAll({
-            // query for not completed todo in Todo models
+            // query for not completed todo in todo models
             where: {
                 is_completed: false,
             },
@@ -112,10 +114,11 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-
+        console.log(todosCompleted)
+        console.log(todosNotCompleted)
         res.render("todos", {
-            title: "Todo",
-            pageHeader: "Todo List",
+            title: "todo",
+            pageheader: "todo list",
             icon: "far fa-check-circle fa-2x",
             todosNotCompleted,
             todosCompleted,
@@ -152,13 +155,40 @@ router.get("/todo", withAuth, (req, res) => {
     });
 });
 
-// visit page
-router.get("/visit", withAuth, (req, res) => {
-    res.render("visit", {
-        title: "Visits",
-        pageHeader: "Visit List",
-        icon: "far fa-calendar-check fa-2x",
-    });
+router.get("/visit", withAuth, async (req, res) => {
+    try {
+
+        const visits = await Visit.findAll({
+            order: [
+            ['date_time', 'DESC']
+            ]
+        }); 
+
+        today = new Date()
+        pastVisits = []
+        todayVisits = []
+        upcomingVisits = []
+
+        // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
+        visits.forEach(
+            obj => {
+                if (obj.date_time > today) upcomingVisits.push(obj)
+                else if (obj.date_time < today) pastVisits.push(obj)
+                else todayVisits.push(obj)
+            }
+        );
+
+        res.render("visit", {
+            title: "Visits",
+            pageHeader: "Visit List",
+            icon: "far fa-check-circle fa-2x",
+            pastVisits,
+            todayVisits,
+            upcomingVisits
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // get visit form

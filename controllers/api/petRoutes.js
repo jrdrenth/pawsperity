@@ -101,27 +101,6 @@ router.post("/", async (req, res) => {
 
 // Read all
 router.get("/", async (req, res) => {
-<<<<<<< HEAD
-  try {
-    const pets = await Pet.findAll({
-      include: [
-        { model: PetType, attributes: ["name"] },
-        { model: User, attributes: ["name"] }
-      ],
-      attributes: {
-        exclude: ["owner_id", "pet_type_id", "createdAt", "updatedAt"],
-      },
-      order: [
-        ["id", "asc"], // this orders first by Pet.id
-        //[{ model: Visit }, 'id', 'asc']   // this orders second by Visit.id
-      ],
-    });
-    res.status(200).json(pets);
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-=======
     try {
         const pets = await Pet.findAll({
             include: [
@@ -140,7 +119,6 @@ router.get("/", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
->>>>>>> 1961e2c13e370ea4b4d3539b6763df5e47e8c63f
 });
 
 // Read by id
