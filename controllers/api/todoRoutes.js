@@ -55,6 +55,28 @@ router.get('/:id', async (req, res) => {
 });
 
 
+
+// Read by user_id
+router.get("/byuserid/:id", async (req, res) => {
+  try {
+      const todos = await Todo.findAll({
+          where: { user_id: req.params.id },
+          order: [["id", "asc"]]
+      });
+
+      if (todos != null) {
+          res.status(200).json(todos);
+      } else {
+          res.status(404).json({ message: `No todos found` });
+      }
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+
 // Update
 //router.put('/:id', withAuth, async (req, res) => {
 router.put('/:id', async (req, res) => {
