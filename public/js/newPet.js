@@ -1,8 +1,8 @@
+// short query selector
+const select = (element) => document.querySelector(element);
+
 const addPet = async function (e) {
     e.preventDefault();
-    // short query selector
-    const select = (element) => document.querySelector(element);
-
     // DOM elements
     const name = select("input[name='pet-name'").value;
     const dob = select("input[name='pet-dob'").value;
@@ -26,4 +26,4 @@ const addPet = async function (e) {
     console.log("Clicked");
 };
 
-document.querySelector("#add-pet").addEventListener("click", addPet);
+select("#add-pet").addEventListener("click", addPet);

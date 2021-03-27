@@ -22,6 +22,7 @@
 body {
     font-family: 'Fira Sans', sans-serif;
     background-color: var(--off-white-color);
+    max-width: 400px;
 }
 
 a {
@@ -276,4 +277,30 @@ input {
     border: none;
     background-color: transparent;
     border-top: 1px solid gray;
+}
+
+#remove-pet {
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid gray;
+    margin-top: 90%;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    width: 80%;
+}
+
+#confirm-option .fas,
+#confirm-option h2 {
+    color: red;
+}
+
+#delete-container {
+    background-color: white;
+    width: 80%;
+    border-radius: 5px;
+    margin-top: 5rem;
+}
+
+#delete-container h2 {
+    line-height: 2rem;
 }

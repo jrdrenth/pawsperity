@@ -50,9 +50,6 @@ router.get("/", withAuth, async (req, res) => {
     // parses the response
     const apiRes = JSON.parse(responseText);
 
-    // // serialized fetch data of the pet type
-    const type = apiRes.map((type) => type.pet_type.name);
-
     // // bring in object of icons
     const petIcons = new Map([
         ["Dog", "fas fa-dog fa-2x"],
@@ -68,6 +65,8 @@ router.get("/", withAuth, async (req, res) => {
         ["Beast", "fab fa-optin-monster fa-2x"],
         ["null", "far fa-question-circle fa-2x"],
     ]);
+
+    // default icons
     const defaultIcon = "far fa-question-circle fa-2x";
 
     // maps new apiRes with added icon property to each object in array
