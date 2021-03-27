@@ -1,36 +1,53 @@
 $(document).ready(() => {
-    // opens confirmation box
-    $("#remove-pet").click(() => {
-        $("#delete-container").slideToggle();
-        $("#remove-pet").slideUp();
-    });
+    //// EDIT FUNCTION ////
+    (function editFunctions() {
+        console.log("editfunction");
 
-    // Cancels confirmation box
-    $("#cancel-option").click(() => {
-        $("#delete-container").slideUp();
-        $("#remove-pet").slideToggle();
-    });
+        // Runs edit functions
+        const edit = async (e) => {
+            e.preventDefault();
+            console.log("Clicked");
+        };
 
-    // actual removal from database
-    const remove = async (e) => {
-        e.preventDefault();
-        // grabs id of the target event
-        const id = document
-            .querySelector("#delete-container")
-            .getAttribute("data-id");
-        // runs api delete
-        const response = await fetch(`/api/pets/${id}`, {
-            method: "DELETE",
+        // On click action of edit button
+        $("#edit-pet").click(edit);
+    })();
+
+    //// REMOVE FUNCTION ////
+    (function removeFunctions() {
+        // opens confirmation box
+        $("#remove-pet").click(() => {
+            $("#delete-container").slideToggle();
+            $("#remove-pet").slideUp();
         });
 
-        if (response.ok) {
-            // Redirect to hom page
-            document.location.replace("/");
-        } else {
-            alert("ERR: Failed to remove pet");
-        }
-    };
+        // Cancels confirmation box
+        $("#cancel-option").click(() => {
+            $("#delete-container").slideUp();
+            $("#remove-pet").slideToggle();
+        });
 
-    // On click action
-    $("#confirm-option").click(remove);
+        // actual removal from database
+        const remove = async (e) => {
+            e.preventDefault();
+            // grabs id of the target event
+            const id = document
+                .querySelector("#delete-container")
+                .getAttribute("data-id");
+            // runs api delete
+            const response = await fetch(`/api/pets/${id}`, {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+                // Redirect to hom page
+                document.location.replace("/");
+            } else {
+                alert("ERR: Failed to remove pet");
+            }
+        };
+
+        // On click action
+        $("#confirm-option").click(remove);
+    })();
 });
