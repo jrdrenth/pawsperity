@@ -3,7 +3,7 @@ use paws_db;
 -- User
 insert into user (id, name, email, password, created_at, updated_at)
 values
-  (1, 'Admin', 'admin@gmail.com', 'fjdlkdsj;aldsf', current_timestamp, current_timestamp);
+  (1, 'Admin', 'admin@email.com', '$2b$10$lerHCzJmNIAHd6ZswewoBegwvzKbTuoVkIRgndBr1vXezxgPmexwW', current_timestamp, current_timestamp);
 
 -- PetType
 insert into pet_type (id, name)

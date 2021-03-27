@@ -1,28 +1,19 @@
 const router = require('express').Router();
-const { Pet, PetType, User } = require('../../models');
+const { Visit, User } = require('../../models');
+// const { Visit } = require('../../models');
 //const withAuth = require('../../utils/auth');
 
 // ===== Visit =====
 // Create
 router.post('/', async (req, res) => {
   try {
-    //// TEMPORARY ////
-    req.session.user_id = 1;
+   
+    const requestedVisit = { ...req.body };
+    console.log(requestedVisit)
+    const newVisit = await Visit.create(requestedVisit);
     
-    const requestedPet = { ...req.body, owner_id: req.session.user_id };
-    console.log('\nNew Pet Request:');
-    console.log(requestedPet);
-    console.log();
-
-    const newPet = await Pet.create(requestedPet, { 
-      include: [{ model: PetType }],
-      //attributes: { exclude: ['category_id'] },
-      order: [
-        ['id', 'asc'],                  // this orders first by Pet.id
-        //[{ model: Visit }, 'id', 'asc']   // this orders second by Visit.id
-      ]
-    });
-    res.status(200).json(newPet);
+    console.log(requestedVisit)
+    res.status(200).json(newVisit);
 
   } catch (err) {
     res.status(500).json(err);

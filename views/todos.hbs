@@ -4,53 +4,54 @@
   <a href="/todo">➕ New Todo</a>
 </div>
 
-<div class = "container">  
-  {{#each todosNotCompleted}}    
-  <a href="/todo/{{id}}">  
+<div class="container">
+  {{#each todosNotCompleted}}
+  <a href="/todo/{{id}}">
 
-  <div class="card center-this">
-    <div class="card-header flex-row justify-space-between">
-      <div>
-        <h3>{{name}}</h3>       
-        <input type="checkbox" class="accept" data-id={{id}} data-newcomplete= {{is_completed}}/>
+    <div class="card center-this">
+      <div class="card-header flex-row justify-space-between">
+        <div>
+          <h3>{{name}}</h3>
+          <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
+        </div>
+      </div>
+      <div class="card-body">
+        {{body}}
       </div>
     </div>
-    <div class="card-body">
-      {{body}}
-    </div>
-  </div>
-  </a>
-
-  <br>
-  {{/each}}  
-</div>
-
-<div class= "completed-header">
-  <h2>Completed</h2>
-</div>
-<div class = "container">  
-  {{#each todosCompleted}}    
-  <a href="/todo/{{id}}">  
-
-  <div class="card-completed center-this">
-    <div class="card-header flex-row justify-space-between text-completed">
-      <div class="todoCB">
-        <h3>{{name}}</h3>
-        <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
-        {{#if is_completed}} Completed {{else}} incomplete {{/if}}
-      </div>
-    </div>
-    <div class="card-body">
-      {{body}}
-    </div>
-  </div>
   </a>
 
   <br>
   {{/each}}
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<div class="completed-header">
+  <h2>Completed</h2>
+</div>
+<div class="container">
+  {{#each todosCompleted}}
+  <a href="/todo/{{id}}">
+
+    <div class="card-completed center-this">
+      <div class="card-header flex-row justify-space-between text-completed">
+        <div class="todoCB">
+          <h3>{{name}}</h3>
+          <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
+          {{#if is_completed}} Completed {{else}} incomplete {{/if}}
+        </div>
+      </div>
+      <div class="card-body">
+        {{body}}
+      </div>
+    </div>
+  </a>
+
+  <br>
+  {{/each}}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 
 <script src="/js/checked.js"></script>
 

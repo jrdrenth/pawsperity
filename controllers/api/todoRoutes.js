@@ -6,11 +6,6 @@ const { Todo } = require('../../models/');
 // Create
 router.post('/', async (req, res) => {
   try {
-    //// TEMPORARY ////
-    if (req.session.user_id == null) {
-      req.session.user_id = 1;
-    }
-
     const requestedTodo = { ...req.body, user_id: req.session.user_id };
     
     console.log('\nNew Todo Request:');
@@ -51,6 +46,28 @@ router.get('/:id', async (req, res) => {
   
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+
+
+// Read by user_id
+router.get("/byuserid/:id", async (req, res) => {
+  try {
+      const todos = await Todo.findAll({
+          where: { user_id: req.params.id },
+          order: [["id", "asc"]]
+      });
+
+      if (todos != null) {
+          res.status(200).json(todos);
+      } else {
+          res.status(404).json({ message: `No todos found` });
+      }
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
   }
 });
 
