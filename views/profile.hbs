@@ -1,15 +1,18 @@
 {{> pageheader}}
+
 <br>
 <div class="container center">
-    <h2>User's name here</h2>
+    <h1>{{name}}</h1>
 </div>
 
 <div class="container">
     <hr>
     <br>
-    <p>DOB: Date of birth here</p>
-    <p>Gender: gender here</p>
-    <p>Email: email here</p>
+    <p class="center profile-email-title">Provided Email&nbsp;&nbsp;<i class="fas fa-envelope"></i></p>
+    <p class="center profile-email">{{email}}</p>
+    <br>
+    <br>
+    <p class="center">{{name}} joined on {{createdAt}}</p>
 </div>
 
 <div class="button-container">

@@ -1,7 +1,8 @@
 const express = require("express");
-const { Todo } = require("../models");
+const { Todo, User, PetType, Pet } = require("../models");
 const router = express.Router();
 const withAuth = require("../utils/auth");
+const fetch = require("node-fetch");
 
 // Login
 router.get("/login", (req, res) => {
@@ -31,11 +32,36 @@ router.post("/logout", (req, res) => {
 });
 
 // Pets page
-router.get("/", withAuth, (req, res) => {
+router.get("/", withAuth, async (req, res) => {
+    // pulls in id of user to gather correct pet
+    const userID = req.session.user_id;
+    // pulls in all pets in db based off user id
+    const petlist = await Pet.findAll({
+        where: { owner_id: userID },
+    });
+    // serializes the data
+    const pets = petlist.map((pet) => pet.get({ plain: true }));
+
+    const response = await fetch(
+        `http://localhost:3001/api/pets/byuserid/${userID}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+
+    const responseText = await response.text();
+    const apiRes = JSON.parse(responseText);
+
+    console.log(apiRes);
+
     res.render("index", {
         title: "Pets",
         pageHeader: "Your Family List",
         icon: "fas fa-paw fa-2x",
+        pets,
     });
 });
 
@@ -48,11 +74,17 @@ router.get("/petdetails", withAuth, (req, res) => {
 });
 
 // Add pets
-router.get("/addpet", withAuth, (req, res) => {
+router.get("/addpet", withAuth, async (req, res) => {
+    // Gets list of pets to be put into dropdown menu
+    const petTypes = await PetType.findAll();
+    // serializing data
+    const types = petTypes.map((type) => type.get({ plain: true }));
+
     res.render("addpets", {
         title: "Add Pets",
         pageHeader: "Add New Pets",
         icon: "fas fa-plus fa-2x",
+        types,
     });
 });
 
@@ -112,7 +144,6 @@ router.get("/todo/:id", withAuth, async (req, res) => {
 });
 
 // get todo form
-
 router.get("/todo", withAuth, (req, res) => {
     res.render("todoForm", {
         title: "Todo Form",
@@ -121,36 +152,20 @@ router.get("/todo", withAuth, (req, res) => {
     });
 });
 
-// get single post
-// router.get('/todo/:id', async (req, res) => {
-//     try {
-//       const todoData = await Todo.findByPk(req.params.id, {
-//         include: [
-//           User,
-//           {
-//             model: Comment,
-//             include: [User],
-//           },
-//         ],
-//       });
-
-//       if (todoData) {
-//         const todo = todoData.get({ plain: true });
-
-//         res.render('single-post', { todo });
-//       } else {
-//         res.status(404).end();
-//       }
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
 // visit page
 router.get("/visit", withAuth, (req, res) => {
     res.render("visit", {
         title: "Visits",
         pageHeader: "Visit List",
+        icon: "far fa-calendar-check fa-2x",
+    });
+});
+
+// get visit form
+router.get("/visitForm", withAuth, (req, res) => {
+    res.render("visitForm", {
+        title: "Visit Form",
+        pageHeader: "Add New Visit",
         icon: "far fa-calendar-check fa-2x",
     });
 });
@@ -173,11 +188,19 @@ router.get("/config", withAuth, (req, res) => {
 });
 
 // Gets profile page from within settings
-router.get("/settings/profile", withAuth, (req, res) => {
+router.get("/settings/profile", withAuth, async (req, res) => {
+    // Grabs user id from session
+    const userID = req.session.user_id;
+    // Queries db for name, email and createdAt
+    const { name, email, createdAt } = await User.findByPk(userID);
+    // Renders page with the vars
     res.render("profile", {
         title: "Profile",
         pageHeader: "Profile",
-        icon: "fas fa-user-circle",
+        icon: "fas fa-user-circle fa-2x",
+        name,
+        email,
+        createdAt,
     });
 });
 

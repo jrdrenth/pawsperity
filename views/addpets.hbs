@@ -24,13 +24,9 @@
 
             <label for="pettype">Pet Type:</label><br>
             <select name="pettype" id="pet-type">
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="rodent">Rodent</option>
-                <option value="reptile">Reptile</option>
-                <option value="dragon">Dragon</option>
-                <option value="dinosaur">Dinosaur</option>
-                <option value="exotic">Exotic</option>
+                {{#each types}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
             </select>
 
             <div class="break"></div>
