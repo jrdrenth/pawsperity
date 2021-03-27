@@ -41,6 +41,7 @@ input {
     resize: none;
     padding: 0.2rem;
     margin: 0.5rem;
+    width:fit-content;
 }
 
 .hide {
@@ -269,4 +270,10 @@ input {
 
 #pawsperity i {
     color: #55CBCD;
+}
+
+#add-pet {
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid gray;
 }

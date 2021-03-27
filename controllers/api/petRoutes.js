@@ -84,6 +84,8 @@ router.post("/", async (req, res) => {
             req.session.user_id = 1;
         }
 
+        console.log(req.body);
+
         const requestedPet = { ...req.body, owner_id: req.session.user_id };
         // console.log('\nNew Pet Request:');
         // console.log(requestedPet);
