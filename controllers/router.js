@@ -33,15 +33,8 @@ router.post("/logout", (req, res) => {
 
 // Pets page
 router.get("/", withAuth, async (req, res) => {
-    // pulls in id of user to gather correct pet
     const userID = req.session.user_id;
-    // pulls in all pets in db based off user id
-    const petlist = await Pet.findAll({
-        where: { owner_id: userID },
-    });
-    // serializes the data
-    const pets = petlist.map((pet) => pet.get({ plain: true }));
-
+    // fetches api from serverside through userID
     const response = await fetch(
         `http://localhost:3001/api/pets/byuserid/${userID}`,
         {
@@ -52,10 +45,39 @@ router.get("/", withAuth, async (req, res) => {
         }
     );
 
+    // waits for response of fetch
     const responseText = await response.text();
+    // parses the response
     const apiRes = JSON.parse(responseText);
 
-    console.log(apiRes);
+    // // bring in object of icons
+    const petIcons = new Map([
+        ["Dog", "fas fa-dog fa-2x"],
+        ["Cat", "fas fa-cat fa-2x"],
+        ["Rabbit", "fas fa-carrot fa-2x"],
+        ["Bird", "fas fa-dove fa-2x"],
+        ["Fish", "fas fa-fish fa-2x"],
+        ["Reptile", "fab fa-suse fa-2x"],
+        ["Rodent", "fas fa-cheese fa-2x"],
+        ["Dragon", "fab fa-d-and-d fa-2x"],
+        ["Dinosaur", "fas fa-tooth fa-2x"],
+        ["Exotic", "fas fa-hand-sparkles fa-2x"],
+        ["Beast", "fab fa-optin-monster fa-2x"],
+        ["null", "far fa-question-circle fa-2x"],
+    ]);
+
+    // default icons
+    const defaultIcon = "far fa-question-circle fa-2x";
+
+    // maps new apiRes with added icon property to each object in array
+    const pets = apiRes.map(({ id, name, dob, gender, pet_type }) => ({
+        id,
+        name,
+        dob,
+        gender,
+        pet_type,
+        icon: petIcons.get(pet_type.name) ?? defaultIcon,
+    }));
 
     res.render("index", {
         title: "Pets",
@@ -65,11 +87,28 @@ router.get("/", withAuth, async (req, res) => {
     });
 });
 
-router.get("/petdetails", withAuth, (req, res) => {
+// petdetails
+router.get("/petdetails/:id", withAuth, async (req, res) => {
+    const petID = req.params.id;
+    const {
+        pet_type_id: id,
+        name,
+        dob,
+        gender,
+        createdAt,
+    } = await Pet.findByPk(petID);
+    const { name: typeName } = await PetType.findByPk(id);
+    console.log(typeName);
+
     res.render("petdetails", {
         title: "Pet Details",
         pageHeader: "Pet Details",
         icon: "fas fa-info-circle fa-2x",
+        name,
+        dob,
+        gender,
+        createdAt,
+        typeName,
     });
 });
 
