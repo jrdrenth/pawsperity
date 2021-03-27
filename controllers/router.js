@@ -63,6 +63,7 @@ router.get("/", withAuth, async (req, res) => {
         ["Dinosaur", "fas fa-tooth fa-2x"],
         ["Exotic", "fas fa-hand-sparkles fa-2x"],
         ["Beast", "fab fa-optin-monster fa-2x"],
+        ["Pokemon", "fas fa-dot-circle fa-2x"],
         ["null", "far fa-question-circle fa-2x"],
     ]);
 
@@ -99,7 +100,10 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
     } = await Pet.findByPk(petID);
     const { name: typeName } = await PetType.findByPk(id);
 
-    const allPetTypes = await PetType.findAll();
+    const allPetTypes = await PetType.findAll({
+        raw: true,
+    });
+    const pettypes = allPetTypes.map(({ id, name }) => ({ id, name }));
 
     res.render("petdetails", {
         title: "Pet Details",
@@ -111,6 +115,7 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
         gender,
         createdAt,
         typeName,
+        pettypes,
     });
 });
 
