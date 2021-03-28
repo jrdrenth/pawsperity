@@ -365,4 +365,8 @@ input[type="checkbox"] {
         align-items: center;
     }
 
+    #remove-pet {
+        margin-top: 20%;
+    }
+
   }
