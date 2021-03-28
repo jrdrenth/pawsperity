@@ -67,12 +67,11 @@ input {
 }
 
 .main-container {
-    padding-bottom: 8rem;
+    padding-bottom: 10rem;
     margin-left: 10rem;
     margin: auto;
     max-width: 600px;
     min-width: 10px;
-    height: 100vh;
     margin: auto;
 }
 
@@ -259,15 +258,24 @@ input {
 }
 
 .todo-button {
+    cursor: pointer;
     margin: auto;
     width: 50%;
     border: 3px solid gray;
     padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 1.2rem;
 }
 
 .completed-header{
-    margin: auto;
-    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    margin: 0 5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 #pawsperity {
@@ -334,6 +342,29 @@ input {
     border-top: 1px solid gray;
     font-size: 1.1rem;
 }
+
+.checkbox-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+}
+
+.completeCheck {
+    padding-left: 1rem;
+}
+
+.upcoming-header {
+    border-bottom: 1px solid gray;
+    padding: 1rem;
+    margin: 0 3rem;
+}
+
 
 
 @media only screen and (min-width: 600px) {

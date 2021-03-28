@@ -1,8 +1,12 @@
 {{> pageheader}}
 
-<div class="todo-button flex-row justify-center">
-  <a href="/todo">➕ New Todo</a>
+{{!-- <a href="/todo">
+  <button class="todo-button flex-row center">➕ New Todo</button>
+</a> --}}
+<div class="container">
+  <h2 class="center upcoming-header"><i class="fas fa-exclamation"></i>&nbsp;Upcoming</h2>
 </div>
+
 
 <div class="container">
   {{#each todosNotCompleted}}
@@ -10,7 +14,7 @@
 
     <div class="card center-this">
       <div class="card-header flex-row justify-space-between">
-        <div>
+        <div class="checkbox-align">
           <h3>{{name}}</h3>
           <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
         </div>
@@ -25,8 +29,11 @@
   {{/each}}
 </div>
 
-<div class="completed-header">
-  <h2>Completed</h2>
+<div class="container">
+  <hr>
+  <div class="completed-header">
+    <h2><i class="far fa-check-square"></i> Completed</h2>
+  </div>
 </div>
 <div class="container">
   {{#each todosCompleted}}
@@ -34,9 +41,11 @@
 
     <div class="card-completed center-this">
       <div class="card-header flex-row justify-space-between text-completed">
-        <div class="todoCB">
+        <div class="todoCB checkbox-align">
           <h3>{{name}}</h3>
           <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
+        </div>
+        <div class="completeCheck">
           {{#if is_completed}} Completed {{else}} incomplete {{/if}}
         </div>
       </div>
@@ -50,15 +59,9 @@
   {{/each}}
 </div>
 
+<button id="add-new-visit"><a href="/todo"><i class="fas fa-edit fa-2x"></i></a></button>
+
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
 
 <script src="/js/checked.js"></script>
-
-
-{{!-- ACTION NEEDED: Have the checkmark when clicked change boolean is_complete and then reload page --}}
-{{!-- ACTION NEEDED: create two different cards one for completed and for each for not completed in the div--}}
-{{!-- ACTION NEEDED: FIX card to display date--}}
-
-{{!-- ACTION NEEDED: Only display !is_complete--}}
-{{!-- ACTION NEEDED: fix href link to edit todos and reference blog--}}

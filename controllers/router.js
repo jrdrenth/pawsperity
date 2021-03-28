@@ -163,8 +163,7 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-        console.log(todosCompleted);
-        console.log(todosNotCompleted);
+
         res.render("todos", {
             title: "todo",
             pageHeader: "Todo List",
