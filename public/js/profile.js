@@ -7,8 +7,7 @@ $(document).ready(() => {
     };
 
     // runs the actual update
-    const edit = async (e) => {
-        e.preventDefault();
+    const edit = async () => {
         // Grabs id of user
         const defaultName = select("#defaultProfile").getAttribute("data-name");
         const defaultEmail = select("#defaultProfile").getAttribute(
