@@ -359,6 +359,12 @@ input[type="checkbox"] {
     padding-left: 1rem;
 }
 
+.upcoming-header {
+    border-bottom: 1px solid gray;
+    padding: 1rem;
+    margin: 0 3rem;
+}
+
 
 
 @media only screen and (min-width: 600px) {
