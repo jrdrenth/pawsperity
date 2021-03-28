@@ -1,8 +1,20 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+const moment = require('moment');
+moment().format();
+
 router.get('/', async (req, res) => {
   try {
+    const currentDate  = moment();
+    const today = moment(moment().format('YYYY-MM-DD'));
+    const tomorrow = moment(moment().format('YYYY-MM-DD')).add(1, 'days');
+    
+    console.log('Today:');
+    console.log(today);
+    console.log('Tomorrow:');
+    console.log(tomorrow);
+
     const users = await User.findAll();
     res.status(200).json(users);
     

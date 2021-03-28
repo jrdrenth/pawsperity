@@ -2,8 +2,7 @@ $(document).on("click", ".accept", function() {
   const id = $(this).attr("data-id");
 
   const is_completed = $(this).is(":checked")
-
-console.log("Reached")
+  document.location.reload()
   const response = fetch(`/api/todos/${id}`,{
     method: 'PUT',
     body: JSON.stringify({

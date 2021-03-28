@@ -1,8 +1,8 @@
 {{> pageheader}}
 
-<div class="todo-button flex-row justify-center">
+{{!-- <div class="todo-button flex-row justify-center">
   <a href="/todo">➕ New Todo</a>
-</div>
+</div> --}}
 
 <div class="container">
   {{#each todosNotCompleted}}
@@ -37,7 +37,7 @@
         <div class="todoCB">
           <h3>{{name}}</h3>
           <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
-          {{#if is_completed}} Completed {{else}} incomplete {{/if}}
+          {{#if is_completed}}{{else}} incomplete {{/if}}
         </div>
       </div>
       <div class="card-body">
@@ -49,6 +49,8 @@
   <br>
   {{/each}}
 </div>
+
+<button id="add-new-visit"><a href="/todo"><i class="fas fa-edit fa-2x"></i></a></button>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>

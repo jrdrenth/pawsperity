@@ -1,17 +1,42 @@
 $(document).ready(() => {
     //// EDIT FUNCTION ////
     (function editFunctions() {
-        console.log("editfunction");
+        // Toggles the editor when run
+        const toggleEdit = () => {
+            $("#edit-popup").slideToggle();
+        };
 
         // Runs edit functions
-        const edit = async (e) => {
-            e.preventDefault();
-            $("#edit-popup").slideToggle();
-            console.log("Clicked");
+        const edit = async () => {
+            const id = document
+                .querySelector("#edit-popup")
+                .getAttribute("data-id");
+
+            const select = (x) => document.querySelector(x);
+
+            const name = select("#edit-name").value;
+            const dob = select("#new-pet-dob").value;
+            const gender = select("#new-pet-gender").value;
+
+            const body = JSON.stringify({ name, dob, gender });
+
+            const response = await fetch(`/api/pets/${id}`, {
+                method: "PUT",
+                body,
+                headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.ok) {
+                console.log("Pet updated!");
+            } else {
+                alert("ERR: Failed to update pet!");
+            }
         };
 
         // On click action of edit button
-        $("#edit-pet").click(edit);
+        $("#edit-pet").click(toggleEdit);
+        $("#cancel-edits-pets").click(toggleEdit);
+        $("#save-edits").click(edit);
     })();
 
     //// REMOVE FUNCTION ////

@@ -4,7 +4,9 @@ const router = express.Router();
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
 const { sequelize } = require("../models/Pet");
-const moment = require('moment');
+var moment = require('moment'); // require
+moment().format(); 
+
 // const { Sequelize } = require("sequelize/types");
 
 // Login
@@ -66,6 +68,7 @@ router.get("/", withAuth, async (req, res) => {
         ["Dinosaur", "fas fa-tooth fa-2x"],
         ["Exotic", "fas fa-hand-sparkles fa-2x"],
         ["Beast", "fab fa-optin-monster fa-2x"],
+        ["Pokemon", "fas fa-dot-circle fa-2x"],
         ["null", "far fa-question-circle fa-2x"],
     ]);
 
@@ -102,7 +105,10 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
     } = await Pet.findByPk(petID);
     const { name: typeName } = await PetType.findByPk(id);
 
-    const allPetTypes = await PetType.findAll();
+    const allPetTypes = await PetType.findAll({
+        raw: true,
+    });
+    const pettypes = allPetTypes.map(({ id, name }) => ({ id, name }));
 
     res.render("petdetails", {
         title: "Pet Details",
@@ -114,6 +120,7 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
         gender,
         createdAt,
         typeName,
+        pettypes,
     });
 });
 
@@ -156,11 +163,10 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-        console.log(todosCompleted)
-        console.log(todosNotCompleted)
+
         res.render("todos", {
             title: "todo",
-            pageheader: "todo list",
+            pageHeader: "Todo List",
             icon: "far fa-check-circle fa-2x",
             todosNotCompleted,
             todosCompleted,
@@ -201,40 +207,33 @@ router.get("/visit", withAuth, async (req, res) => {
     try {
         const visits = await Visit.findAll({
             order: [
-            ['date_time', 'DESC']
+              ['date_time', 'DESC']
             ]
-        }); 
+        });
 
-        // today = new Date()
-        pastVisits = []
-        todayVisits = []
-        upcomingVisits = []
+        // const newtoday = moment(moment.startOf('day'));
+        const today = moment(moment().format('YYYY-MM-DD'));
+        const tomorrow = moment(moment().format('YYYY-MM-DD')).add(1, 'days');
 
-        // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
+        const pastVisits = [];
+        const todayVisits = [];
+        const upcomingVisits = [];
+
+        visits.forEach(
+            obj => {
+                if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
+                else if (obj.date_time < today) pastVisits.push(obj)
+                else todayVisits.push(obj)
+            }
+        );
         // visits.forEach(
         //     obj => {
-        //         if (obj.date_time > today) upcomingVisits.push(obj)
+        //         if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
         //         else if (obj.date_time < today) pastVisits.push(obj)
         //         else todayVisits.push(obj)
         //     }
         // );
-        const isToday = (date) => {
-            const today = new Date()
-            return date.getDate() === today.getDate() &&
-                date.getMonth() === today.getMonth() &&
-                date.getFullYear() === today.getFullYear();
-        };
-        const date = new Date(2021, 3, 27);
-        console.log(isToday(date));
-        visits.forEach(
-            obj => {
-                if (obj.date_time > currentDay) upcomingVisits.push(obj)
-                else if (obj.date_time < currentDay) pastVisits.push(obj)
-                else todayVisits.push(obj)
-            }
-        );
-
-
+        console.log(pastVisits.dataValues.date_time);
 
         res.render("visit", {
             title: "Visits",
@@ -242,7 +241,7 @@ router.get("/visit", withAuth, async (req, res) => {
             icon: "far fa-check-circle fa-2x",
             pastVisits,
             todayVisits,
-            upcomingVisits
+            upcomingVisits,
         });
     } catch (err) {
         res.status(500).json(err);
