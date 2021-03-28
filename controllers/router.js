@@ -206,26 +206,37 @@ router.get("/todo", withAuth, (req, res) => {
 
 router.get("/visit", withAuth, async (req, res) => {
     try {
-        const visits = await Visit.findAll({
-            order: [["date_time", "DESC"]],
-        });
+        // const visitsOrm = await Visit.findAll({
+        //     order: [["date_time", "DESC"]],
+        // });
+        // const visits = visitsOrm.map((visit) => visit.get({ plain: true }));
 
-        const today = moment(moment().format("YYYY-MM-DD"));
-        const tomorrow = moment(moment().format("YYYY-MM-DD")).add(1, "days");
+        const userId = req.session.user_id;
+        const response = await fetch(
+            `http://localhost:3001/api/visits/byuserid/${userId}`,
+            {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            }
+        );
+        const responseText = await response.text();
+        const visits = JSON.parse(responseText);
 
         const pastVisits = [];
         const todayVisits = [];
         const upcomingVisits = [];
 
-        // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
-        visits.forEach((obj) => {
-            // const hour = obj.date_time.getHours();
-            // hour += 7;
-            // obj.date_time.setHours(hour);
+        const today = moment(moment().format("YYYY-MM-DD")).toDate();
+        const tomorrow = moment(moment().format("YYYY-MM-DD")).add(1, "days").toDate();
 
-            if (obj.date_time >= tomorrow) upcomingVisits.push(obj);
-            else if (obj.date_time < today) pastVisits.push(obj);
-            else todayVisits.push(obj);
+        visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
+        visits.forEach((obj) => {
+            let visit = obj;
+            visit.date_time = moment(visit.date_time, 'YYYY-MM-DDTHH:mm:ss.fff').toDate();
+
+            if (visit.date_time >= tomorrow) upcomingVisits.push(visit);
+            else if (visit.date_time < today) pastVisits.push(visit);
+            else todayVisits.push(visit);
         });
 
         res.render("visit", {

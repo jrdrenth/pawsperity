@@ -1,85 +1,85 @@
 {{> pageheader}}
 
 <div class="container center">
-    <button class="visit-button" id="visit-today">
-        <h1>TODAY <i class="fas fa-chevron-down"></i></h1>
-        <br>
-        <div class="hide">
-            <ul>
-                {{#each todayVisits}}
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            {{dataValues.date_time}}
-                        </div>
-                        <div class="card-body">
-                            {{dataValues.title}}
-                        </div>
-                        <div class="card-footer">
-                            {{dataValues.notes}}
-                        </div>
-                    </div>
-                    <br>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-    </button>
+  <button class="visit-button" id="visit-today">
+    <h1>TODAY <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each todayVisits}}
+        <li>
+          <div class="card center-this">
+            <div class="card-title">
+              {{this.date_time}}
+            </div>
+            <div class="card-body">
+              {{this.title}}
+            </div>
+            <div class="card-footer">
+              {{this.notes}}
+            </div>
+          </div>
+          <br>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </button>
 </div>
 
 <div class="container center">
-    <button class="visit-button" id="visit-upcoming">
-        <h1>UPCOMING VISITS <i class="fas fa-chevron-down"></i></h1>
-        <br>
-        <div class="hide">
-            <ul>
-                {{#each upcomingVisits}}
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            {{dataValues.date_time}}
-                        </div>
-                        <div class="card-body">
-                            {{dataValues.title}}
-                        </div>
-                        <div class="card-footer">
-                            {{dataValues.notes}}
-                        </div>
-                    </div>
-                    <br>
-                </li>
-                {{/each}}
-                <li>
-            </ul>
-        </div>
-    </button>
+  <button class="visit-button" id="visit-upcoming">
+    <h1>UPCOMING VISITS <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each upcomingVisits}}
+        <li>
+          <div class="card center-this">
+            <div class="card-title">
+              {{this.date_time}}
+            </div>
+            <div class="card-body">
+              {{this.title}}
+            </div>
+            <div class="card-footer">
+              {{this.notes}}
+            </div>
+          </div>
+          <br>
+        </li>
+        {{/each}}
+        <li>
+      </ul>
+    </div>
+  </button>
 </div>
 
 <div class="container center">
-    <button class="visit-button" id="visit-past">
-        <h1>PAST VISITS <i class="fas fa-chevron-down"></i></h1>
-        <br>
-        <div class="hide">
-            <ul>
-                {{#each pastVisits}}
-                <li>
-                    <div class="card center-this">
-                        <div class="card-title">
-                            {{dataValues.date_time}}
-                        </div>
-                        <div class="card-body">
-                            {{dataValues.title}}
-                        </div>
-                        <div class="card-footer">
-                            {{dataValues.notes}}
-                        </div>
-                    </div>
-                    <br>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-    </button>
+  <button class="visit-button" id="visit-past">
+    <h1>PAST VISITS <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each pastVisits}}
+        <li>
+          <div class="card center-this">
+            <div class="card-title">
+              {{this.date_time}}
+            </div>
+            <div class="card-body">
+              {{this.title}}
+            </div>
+            <div class="card-footer">
+              {{this.notes}}
+            </div>
+          </div>
+          <br>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </button>
 </div>
 
 {{!-- <button id="add-new-visit"><i class="fas fa-edit fa-2x"></i></button> --}}
