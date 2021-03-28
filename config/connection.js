@@ -14,7 +14,9 @@ const sequelize = process.env.JAWSDB_URL
 
               // Prevents mysql2 from converting decimal to string to preserve precision,
               // we will not run into precision issues so it's ok to opt out of this default behavior
-              dialectOptions: { decimalNumbers: true },
+              dialectOptions: {
+                  decimalNumbers: true,
+              },
           }
       );
 

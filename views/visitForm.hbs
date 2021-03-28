@@ -12,8 +12,9 @@
           <h3>Who is visiting?</h3>
         </label>
         <select name="pet-id" id="pet-visit-id">
-          <option value="pet-id">test</option>
-          <option value="pet-id">blah</option>
+          {{#each pets}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
 
@@ -22,7 +23,9 @@
           <h3>Where are they going?</h3>
         </label>
         <select name="provider-id" id="provider-visit-id">
-          <option value="provider-id">test</option>
+          {{#each providers}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
 
@@ -31,7 +34,9 @@
           <h3>What are they going to do?</h3>
         </label>
         <select name="service-id" id="service-visit-id">
-          <option value="service-id">test</option>
+          {{#each services}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
 
@@ -58,7 +63,7 @@
 
       <div class="input-container">
         <label class="form-label" for="visit-description">
-          <h3>Description:</h3>
+          <h3>Notes:</h3>
         </label>
         <textarea name="visit-description" class="form-input"></textarea>
       </div>
@@ -70,4 +75,9 @@
     </form>
   </div>
 </div>
+
+{{!-- jquery --}}
+{{> jquery}}
+
+{{!-- Front JS --}}
 <script src="/js/newVisit.js"></script>
