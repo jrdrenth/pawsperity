@@ -4,6 +4,9 @@ const router = express.Router();
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
 const { sequelize } = require("../models/Pet");
+var moment = require('moment'); // require
+moment().format(); 
+
 // const { Sequelize } = require("sequelize/types");
 
 // Login
@@ -202,17 +205,30 @@ router.get("/visit", withAuth, async (req, res) => {
             order: [
             ['date_time', 'DESC']
             ]
-        }); 
+        });
 
-        today = new Date()
-        pastVisits = []
-        todayVisits = []
-        upcomingVisits = []
+        const today = moment(moment().format('YYYY-MM-DD'));
+        const tomorrow = moment(moment().format('YYYY-MM-DD')).add(1, 'days');
+        
+        console.log('Today:');
+        console.log(today);
+        console.log('Tomorrow:');
+        console.log(tomorrow);
+        
+
+        const pastVisits = [];
+        const todayVisits = [];
+        const upcomingVisits = [];
+
 
         // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
         visits.forEach(
             obj => {
-                if (obj.date_time > today) upcomingVisits.push(obj)
+                // const hour = obj.date_time.getHours();
+                // hour += 7;
+                // obj.date_time.setHours(hour);
+
+                if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
                 else if (obj.date_time < today) pastVisits.push(obj)
                 else todayVisits.push(obj)
             }
