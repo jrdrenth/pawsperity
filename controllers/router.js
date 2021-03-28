@@ -68,6 +68,7 @@ router.get("/", withAuth, async (req, res) => {
         ["Dinosaur", "fas fa-tooth fa-2x"],
         ["Exotic", "fas fa-hand-sparkles fa-2x"],
         ["Beast", "fab fa-optin-monster fa-2x"],
+        ["Pokemon", "fas fa-dot-circle fa-2x"],
         ["null", "far fa-question-circle fa-2x"],
     ]);
 
@@ -104,7 +105,10 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
     } = await Pet.findByPk(petID);
     const { name: typeName } = await PetType.findByPk(id);
 
-    const allPetTypes = await PetType.findAll();
+    const allPetTypes = await PetType.findAll({
+        raw: true,
+    });
+    const pettypes = allPetTypes.map(({ id, name }) => ({ id, name }));
 
     res.render("petdetails", {
         title: "Pet Details",
@@ -116,6 +120,7 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
         gender,
         createdAt,
         typeName,
+        pettypes,
     });
 });
 
@@ -158,11 +163,11 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-        console.log(todosCompleted)
-        console.log(todosNotCompleted)
+        console.log(todosCompleted);
+        console.log(todosNotCompleted);
         res.render("todos", {
             title: "todo",
-            pageheader: "todo list",
+            pageHeader: "Todo List",
             icon: "far fa-check-circle fa-2x",
             todosNotCompleted,
             todosCompleted,
@@ -203,23 +208,16 @@ router.get("/visit", withAuth, async (req, res) => {
     try {
         const visits = await Visit.findAll({
             order: [
-            ['date_time', 'DESC']
+              ['date_time', 'DESC']
             ]
         });
 
         const today = moment(moment().format('YYYY-MM-DD'));
         const tomorrow = moment(moment().format('YYYY-MM-DD')).add(1, 'days');
-        
-        console.log('Today:');
-        console.log(today);
-        console.log('Tomorrow:');
-        console.log(tomorrow);
-        
 
         const pastVisits = [];
         const todayVisits = [];
         const upcomingVisits = [];
-
 
         // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
         visits.forEach(
@@ -240,7 +238,7 @@ router.get("/visit", withAuth, async (req, res) => {
             icon: "far fa-check-circle fa-2x",
             pastVisits,
             todayVisits,
-            upcomingVisits
+            upcomingVisits,
         });
     } catch (err) {
         res.status(500).json(err);

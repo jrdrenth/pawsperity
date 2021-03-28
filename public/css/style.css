@@ -23,7 +23,6 @@
 body {
     font-family: 'Fira Sans', sans-serif;
     background-color: var(--off-white-color);
-    max-width: 400px;
 }
 
 a {
@@ -68,6 +67,12 @@ input {
 
 .main-container {
     padding-bottom: 8rem;
+    margin-left: 10rem;
+    margin: auto;
+    max-width: 600px;
+    min-width: 10px;
+    height: 100vh;
+    margin: auto;
 }
 
 .container-thin {
@@ -128,6 +133,7 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .visit-button {
@@ -327,3 +333,24 @@ input {
     border-top: 1px solid gray;
     font-size: 1.1rem;
 }
+
+
+@media only screen and (min-width: 600px) {
+
+
+    #nav {
+        position: fixed;
+        bottom: 0;
+        background-color: var(--primary-color);
+    }
+
+    #nav-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-container {
+        border: 10px solid var(--primary-color);
+    }
+  }
