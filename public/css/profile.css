@@ -1,0 +1,8 @@
+#profile-edit-popup {
+    margin-top: 1rem;
+}
+
+#edit-form-profile select,
+#edit-form-profile input {
+    width: 75%;
+}

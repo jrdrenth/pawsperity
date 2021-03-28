@@ -1,6 +1,7 @@
 /* Import fira font */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 @import "./editPet.css";
+@import "./profile.css";
 
 :root {
     --primary-color: #ABDEE6;
