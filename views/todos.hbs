@@ -11,7 +11,7 @@
     <div class="card center-this">
       <div class="card-header flex-row justify-space-between">
         <div>
-          <h3>{{name}}</h3>
+          <h4>{{name}}</h4>
           <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
         </div>
       </div>
@@ -35,7 +35,7 @@
     <div class="card-completed center-this">
       <div class="card-header flex-row justify-space-between text-completed">
         <div class="todoCB">
-          <h3>{{name}}</h3>
+          <h4>{{name}}</h4>
           <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
           {{#if is_completed}}{{else}} incomplete {{/if}}
         </div>
@@ -56,11 +56,3 @@
   crossorigin="anonymous"></script>
 
 <script src="/js/checked.js"></script>
-
-
-{{!-- ACTION NEEDED: Have the checkmark when clicked change boolean is_complete and then reload page --}}
-{{!-- ACTION NEEDED: create two different cards one for completed and for each for not completed in the div--}}
-{{!-- ACTION NEEDED: FIX card to display date--}}
-
-{{!-- ACTION NEEDED: Only display !is_complete--}}
-{{!-- ACTION NEEDED: fix href link to edit todos and reference blog--}}
