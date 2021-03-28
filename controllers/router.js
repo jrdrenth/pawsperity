@@ -160,11 +160,11 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-        console.log(todosCompleted)
-        console.log(todosNotCompleted)
+        console.log(todosCompleted);
+        console.log(todosNotCompleted);
         res.render("todos", {
             title: "todo",
-            pageheader: "todo list",
+            pageHeader: "Todo List",
             icon: "far fa-check-circle fa-2x",
             todosNotCompleted,
             todosCompleted,
@@ -204,24 +204,20 @@ router.get("/todo", withAuth, (req, res) => {
 router.get("/visit", withAuth, async (req, res) => {
     try {
         const visits = await Visit.findAll({
-            order: [
-            ['date_time', 'DESC']
-            ]
-        }); 
+            order: [["date_time", "DESC"]],
+        });
 
-        today = new Date()
-        pastVisits = []
-        todayVisits = []
-        upcomingVisits = []
+        today = new Date();
+        pastVisits = [];
+        todayVisits = [];
+        upcomingVisits = [];
 
         // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
-        visits.forEach(
-            obj => {
-                if (obj.date_time > today) upcomingVisits.push(obj)
-                else if (obj.date_time < today) pastVisits.push(obj)
-                else todayVisits.push(obj)
-            }
-        );
+        visits.forEach((obj) => {
+            if (obj.date_time > today) upcomingVisits.push(obj);
+            else if (obj.date_time < today) pastVisits.push(obj);
+            else todayVisits.push(obj);
+        });
 
         res.render("visit", {
             title: "Visits",
@@ -229,7 +225,7 @@ router.get("/visit", withAuth, async (req, res) => {
             icon: "far fa-check-circle fa-2x",
             pastVisits,
             todayVisits,
-            upcomingVisits
+            upcomingVisits,
         });
     } catch (err) {
         res.status(500).json(err);
