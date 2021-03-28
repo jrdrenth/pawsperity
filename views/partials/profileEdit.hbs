@@ -1,0 +1,21 @@
+<div class="container hide" id="profile-edit-popup" data-id="{{id}}">
+    <h1 class="center">--- New Edit Below ---</h1>
+    <div class="break"></div>
+
+    <form id="edit-form-profile">
+        <div class="label-design">
+            <label for="name">Name:</label>
+            <input id="new-name" type="text" name="name" placeholder="{{name}}">
+        </div>
+        <div class="label-design">
+            <label for="dob">Email:</label>
+            <input type="email" name="dob" placeholder="{{email}}" id="new-email">
+        </div>
+        <div class="button-container">
+            <button type="submit" class="my-button button" id="save-edits-profile"><i class="fas fa-check"></i> Save
+                Edits</button>
+            <button type="button" class="my-button button" id="cancel-edits-profile"><i class="fas fa-times"></i>
+                Cancel</button>
+        </div>
+    </form>
+</div>
