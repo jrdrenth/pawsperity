@@ -215,7 +215,7 @@ router.get("/visit", withAuth, async (req, res) => {
             `http://localhost:3001/api/visits/byuserid/${userId}`,
             {
                 method: "GET",
-                headers: { "Content-Type": "application/json" }
+                headers: { "Content-Type": "application/json" },
             }
         );
         const responseText = await response.text();
@@ -226,12 +226,19 @@ router.get("/visit", withAuth, async (req, res) => {
         const upcomingVisits = [];
 
         const today = moment(moment().format("YYYY-MM-DD")).toDate();
-        const tomorrow = moment(moment().format("YYYY-MM-DD")).add(1, "days").toDate();
+        const tomorrow = moment(moment().format("YYYY-MM-DD"))
+            .add(1, "days")
+            .toDate();
 
-        visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
+        visits.forEach((obj) =>
+            console.log(obj.date_time, obj.date_time > today)
+        );
         visits.forEach((obj) => {
             let visit = obj;
-            visit.date_time = moment(visit.date_time, 'YYYY-MM-DDTHH:mm:ss.fff').toDate();
+            visit.date_time = moment(
+                visit.date_time,
+                "YYYY-MM-DDTHH:mm:ss.fff"
+            ).toDate();
 
             if (visit.date_time >= tomorrow) upcomingVisits.push(visit);
             else if (visit.date_time < today) pastVisits.push(visit);
@@ -252,11 +259,50 @@ router.get("/visit", withAuth, async (req, res) => {
 });
 
 // get visit form
-router.get("/visitForm", withAuth, (req, res) => {
+router.get("/visitForm", withAuth, async (req, res) => {
+    // User ID
+    const userId = req.session.user_id;
+
+    // fetch data of pets
+    const petResponse = await fetch(
+        `http://localhost:3001/api/pets/byuserid/${userId}`,
+        {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        }
+    );
+    const petResponseText = await petResponse.text();
+    const pets = JSON.parse(petResponseText);
+
+    // fetch data of service provider // gets all providers
+    const providerResponse = await fetch(
+        `http://localhost:3001/api/services/providers/`,
+        {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        }
+    );
+    const providerResponseText = await providerResponse.text();
+    const providers = JSON.parse(providerResponseText);
+
+    // fetch data of services // gets all services
+    const servicesResponse = await fetch(
+        `http://localhost:3001/api/services/`,
+        {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        }
+    );
+    const servicesResponseText = await servicesResponse.text();
+    const services = JSON.parse(servicesResponseText);
+
     res.render("visitForm", {
         title: "Visit Form",
         pageHeader: "Add New Visit",
         icon: "far fa-calendar-check fa-2x",
+        pets,
+        providers,
+        services,
     });
 });
 
