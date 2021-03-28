@@ -223,14 +223,6 @@ router.get("/visit", withAuth, async (req, res) => {
                 else todayVisits.push(obj)
             }
         );
-        // visits.forEach(
-        //     obj => {
-        //         if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
-        //         else if (obj.date_time < today) pastVisits.push(obj)
-        //         else todayVisits.push(obj)
-        //     }
-        // );
-        console.log(pastVisits.dataValues.date_time);
 
         res.render("visit", {
             title: "Visits",
