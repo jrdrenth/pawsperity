@@ -163,8 +163,7 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosCompleted = todosCompletedData.map((todo) =>
             todo.get({ plain: true })
         );
-        console.log(todosCompleted);
-        console.log(todosNotCompleted);
+
         res.render("todos", {
             title: "todo",
             pageHeader: "Todo List",
@@ -217,16 +216,13 @@ router.get("/visit", withAuth, async (req, res) => {
         const todayVisits = [];
         const upcomingVisits = [];
 
-        // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
-        visits.forEach((obj) => {
-            // const hour = obj.date_time.getHours();
-            // hour += 7;
-            // obj.date_time.setHours(hour);
-
-            if (obj.date_time >= tomorrow) upcomingVisits.push(obj);
-            else if (obj.date_time < today) pastVisits.push(obj);
-            else todayVisits.push(obj);
-        });
+        visits.forEach(
+            obj => {
+                if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
+                else if (obj.date_time < today) pastVisits.push(obj)
+                else todayVisits.push(obj)
+            }
+        );
 
         res.render("visit", {
             title: "Visits",
