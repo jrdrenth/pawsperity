@@ -13,8 +13,8 @@ console.log("Reached")
   });
   document.location.reload()
 
-
 });
+
 
 
 // const checkedHandler = async function(event) {

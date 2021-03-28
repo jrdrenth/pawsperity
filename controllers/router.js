@@ -4,6 +4,7 @@ const router = express.Router();
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
 const { sequelize } = require("../models/Pet");
+const moment = require('moment');
 // const { Sequelize } = require("sequelize/types");
 
 // Login
@@ -204,19 +205,36 @@ router.get("/visit", withAuth, async (req, res) => {
             ]
         }); 
 
-        today = new Date()
+        // today = new Date()
         pastVisits = []
         todayVisits = []
         upcomingVisits = []
 
         // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
+        // visits.forEach(
+        //     obj => {
+        //         if (obj.date_time > today) upcomingVisits.push(obj)
+        //         else if (obj.date_time < today) pastVisits.push(obj)
+        //         else todayVisits.push(obj)
+        //     }
+        // );
+        const isToday = (date) => {
+            const today = new Date()
+            return date.getDate() === today.getDate() &&
+                date.getMonth() === today.getMonth() &&
+                date.getFullYear() === today.getFullYear();
+        };
+        const date = new Date(2021, 3, 27);
+        console.log(isToday(date));
         visits.forEach(
             obj => {
-                if (obj.date_time > today) upcomingVisits.push(obj)
-                else if (obj.date_time < today) pastVisits.push(obj)
+                if (obj.date_time > currentDay) upcomingVisits.push(obj)
+                else if (obj.date_time < currentDay) pastVisits.push(obj)
                 else todayVisits.push(obj)
             }
         );
+
+
 
         res.render("visit", {
             title: "Visits",
