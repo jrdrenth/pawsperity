@@ -1,8 +1,10 @@
 {{> pageheader}}
+<div class="break"></div>
 
-<div class="todo-button flex-row justify-center">
-  <a href="/todo">➕ New Todo</a>
-</div>
+<a href="/todo">
+  <button class="todo-button flex-row center">➕ New Todo</button>
+</a>
+
 
 <div class="container">
   {{#each todosNotCompleted}}
@@ -10,7 +12,7 @@
 
     <div class="card center-this">
       <div class="card-header flex-row justify-space-between">
-        <div>
+        <div class="checkbox-align">
           <h3>{{name}}</h3>
           <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
         </div>
@@ -25,8 +27,11 @@
   {{/each}}
 </div>
 
-<div class="completed-header">
-  <h2>Completed</h2>
+<div class="container">
+  <hr>
+  <div class="completed-header">
+    <h2><i class="far fa-check-square"></i> Completed</h2>
+  </div>
 </div>
 <div class="container">
   {{#each todosCompleted}}
@@ -34,9 +39,11 @@
 
     <div class="card-completed center-this">
       <div class="card-header flex-row justify-space-between text-completed">
-        <div class="todoCB">
+        <div class="todoCB checkbox-align">
           <h3>{{name}}</h3>
           <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
+        </div>
+        <div class="completeCheck">
           {{#if is_completed}} Completed {{else}} incomplete {{/if}}
         </div>
       </div>
