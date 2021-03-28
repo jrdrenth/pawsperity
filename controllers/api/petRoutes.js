@@ -8,6 +8,7 @@ router.post("/types/", async (req, res) => {
     try {
         const newPetType = await PetType.create(req.body);
         res.status(200).json(newPetType);
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -19,6 +20,7 @@ router.get("/types/", async (req, res) => {
     try {
         const petTypes = await PetType.findAll();
         res.status(200).json(petTypes);
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -37,6 +39,7 @@ router.get("/types/:id", async (req, res) => {
                 message: `No petType found with id: ${req.params.id}`,
             });
         }
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -55,6 +58,7 @@ router.put("/types/:id", async (req, res) => {
         } else {
             res.status(404).json(affectedRowCount);
         }
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -73,6 +77,7 @@ router.delete("/types/:id", async (req, res) => {
         } else {
             res.status(404).json(isDeleted);
         }
+        
     } catch (err) {
         res.status(500).json(err);
     }
