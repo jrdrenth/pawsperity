@@ -1,17 +1,12 @@
 {{> pageheader}}
 
-{{!-- <a href="/todo">
-  <button class="todo-button flex-row center">➕ New Todo</button>
-</a> --}}
 <div class="container">
   <h2 class="center upcoming-header"><i class="fas fa-exclamation"></i>&nbsp;Upcoming</h2>
 </div>
 
-
 <div class="container">
   {{#each todosNotCompleted}}
   <a href="/todo/{{id}}">
-
     <div class="card center-this">
       <div class="card-header flex-row justify-space-between">
         <div class="checkbox-align">
@@ -38,7 +33,6 @@
 <div class="container">
   {{#each todosCompleted}}
   <a href="/todo/{{id}}">
-
     <div class="card-completed center-this">
       <div class="card-header flex-row justify-space-between text-completed">
         <div class="todoCB checkbox-align">

@@ -1,6 +1,7 @@
 /* Import fira font */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 @import "./editPet.css";
+@import "./editTodo.css";
 @import "./profile.css";
 @import "./visit.css";
 @import "./todo.css";
@@ -294,6 +295,16 @@ input {
     width: 80%;
 }
 
+#remove-todo {
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid gray;
+    margin-top: 90%;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    width: 80%;
+}
+
 #confirm-option .fas,
 #confirm-option h2 {
     color: red;
@@ -327,6 +338,12 @@ input {
 }
 
 #edit-pet {
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid gray;
+    font-size: 1.1rem;
+}
+#edit-todo {
     border: none;
     background-color: transparent;
     border-top: 1px solid gray;

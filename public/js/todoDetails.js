@@ -3,54 +3,57 @@ $(document).ready(() => {
     (function editFunctions() {
         // Toggles the editor when run
         const toggleEdit = () => {
-            $("#edit-popup").slideToggle();
+            $("#edit-popup-todo").slideToggle();
         };
 
         // Runs edit functions
         const edit = async () => {
             const id = document
-                .querySelector("#edit-popup")
+                .querySelector("#edit-popup-todo")
                 .getAttribute("data-id");
 
             const select = (x) => document.querySelector(x);
+            console.log(id)
+            const name = select("#edit-title").value;
+            const description = select("#edit-description").value;
 
-            const name = select("#edit-name").value;
-            const dob = select("#new-pet-dob").value;
-            const gender = select("#new-pet-gender").value;
+            const body = JSON.stringify({ name, description });
 
-            const body = JSON.stringify({ name, dob, gender });
+            console.log(body);     
 
-            const response = await fetch(`/api/pets/${id}`, {
+            const response = await fetch(`/api/todos/${id}`, {
                 method: "PUT",
                 body,
                 headers: { "Content-Type": "application/json" },
             });
 
             if (response.ok) {
-                console.log("Pet updated!");
+                console.log("Todo updated!");
+                document.location.reload();
             } else {
-                alert("ERR: Failed to update pet!");
+                alert("ERR: Failed to update todo!");
             }
+
         };
 
         // On click action of edit button
-        $("#edit-pet").click(toggleEdit);
-        $("#cancel-edits-pets").click(toggleEdit);
-        $("#save-edits").click(edit);
+        $("#edit-todo").click(toggleEdit);
+        $("#cancel-edits-todo").click(toggleEdit);
+        $("#save-edits-todo").click(edit);
     })();
 
     //// REMOVE FUNCTION ////
     (function removeFunctions() {
         // opens confirmation box
-        $("#remove-pet").click(() => {
+        $("#remove-todo").click(() => {
             $("#delete-container").slideToggle();
-            $("#remove-pet").slideUp();
+            $("#remove-todo").slideUp();
         });
 
         // Cancels confirmation box
         $("#cancel-option").click(() => {
             $("#delete-container").slideUp();
-            $("#remove-pet").slideToggle();
+            $("#remove-todo").slideToggle();
         });
 
         // actual removal from database
@@ -61,15 +64,14 @@ $(document).ready(() => {
                 .querySelector("#delete-container")
                 .getAttribute("data-id");
             // runs api delete
-            const response = await fetch(`/api/pets/${id}`, {
+            const response = await fetch(`/api/todos/${id}`, {
                 method: "DELETE",
             });
-
             if (response.ok) {
                 // Redirect to hom page
-                document.location.replace("/");
+                document.location.replace("/todos");
             } else {
-                alert("ERR: Failed to remove pet");
+                alert("ERR: Failed to remove todo");
             }
         };
 

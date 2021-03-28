@@ -7,10 +7,6 @@ router.post("/", async (req, res) => {
     try {
         const requestedTodo = { ...req.body, user_id: req.session.user_id };
 
-        console.log("\nNew Todo Request:");
-        console.log(requestedTodo);
-        console.log();
-
         const newTodo = await Todo.create(requestedTodo);
         res.status(200).json(newTodo);
     } catch (err) {

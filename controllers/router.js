@@ -183,11 +183,12 @@ router.get("/todo/:id", withAuth, async (req, res) => {
 
         const todo = todoData.get({ plain: true });
 
-        res.render("singleTodo", {
+        res.render("todoDetails", {
             title: "Todo",
-            pageHeader: "Todo Information",
-            icon: "far fa-check-circle fa-2x",
+            pageHeader: "Todo Details",
+            icon: "fas fa-info-circle fa-2x",
             todo,
+            
         });
     } catch (err) {
         res.status(500).json(err);
