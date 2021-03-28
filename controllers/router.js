@@ -4,8 +4,8 @@ const router = express.Router();
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
 const { sequelize } = require("../models/Pet");
-var moment = require('moment'); // require
-moment().format(); 
+var moment = require("moment"); // require
+moment().format();
 
 // const { Sequelize } = require("sequelize/types");
 
@@ -207,30 +207,26 @@ router.get("/todo", withAuth, (req, res) => {
 router.get("/visit", withAuth, async (req, res) => {
     try {
         const visits = await Visit.findAll({
-            order: [
-              ['date_time', 'DESC']
-            ]
+            order: [["date_time", "DESC"]],
         });
 
-        const today = moment(moment().format('YYYY-MM-DD'));
-        const tomorrow = moment(moment().format('YYYY-MM-DD')).add(1, 'days');
+        const today = moment(moment().format("YYYY-MM-DD"));
+        const tomorrow = moment(moment().format("YYYY-MM-DD")).add(1, "days");
 
         const pastVisits = [];
         const todayVisits = [];
         const upcomingVisits = [];
 
         // visits.forEach(obj => console.log(obj.date_time, (obj.date_time > today)));
-        visits.forEach(
-            obj => {
-                // const hour = obj.date_time.getHours();
-                // hour += 7;
-                // obj.date_time.setHours(hour);
+        visits.forEach((obj) => {
+            // const hour = obj.date_time.getHours();
+            // hour += 7;
+            // obj.date_time.setHours(hour);
 
-                if (obj.date_time >= tomorrow) upcomingVisits.push(obj)
-                else if (obj.date_time < today) pastVisits.push(obj)
-                else todayVisits.push(obj)
-            }
-        );
+            if (obj.date_time >= tomorrow) upcomingVisits.push(obj);
+            else if (obj.date_time < today) pastVisits.push(obj);
+            else todayVisits.push(obj);
+        });
 
         res.render("visit", {
             title: "Visits",
@@ -285,6 +281,7 @@ router.get("/settings/profile", withAuth, async (req, res) => {
         name,
         email,
         createdAt,
+        id: userID,
     });
 });
 
