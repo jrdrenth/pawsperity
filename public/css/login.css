@@ -1,0 +1,23 @@
+#login-card-container input {
+    width: 100%;
+}
+
+#login-form {
+    margin-top: 20%;
+}
+
+/* PAWSPERITY TITLE */
+#login-form-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#pawsperity {
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    color: #8FCACA;
+}
+
+#pawsperity i {
+    color: #55CBCD;
+}

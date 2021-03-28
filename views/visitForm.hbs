@@ -3,21 +3,63 @@
 <div class="container center">
   <div class="post card">
     <div class="post-card-header">
-      <h2>Visit</h2> <br>
+      <h2>Visit</h2>
     </div>
     <form id="new-visit-form" class="card-body">
-      <label class="form-label" for="visit-title">Title:</label> <br>
-      <input type="text" name="visit-name" class="form-input" /> <br>
-      <label class="form-label" for="visit-date">Date:</label> <br>
-      <input type="date" name="visit-date" class="form-input" /> <br>
-      <label class="form-label" for="visit-description">description:</label> <br>
-      <textarea name="visit-description" class="form-input"></textarea> <br>
+
+      <div class="input-container">
+        <label for="pet-id">
+          <h3>Who is visiting?</h3>
+        </label>
+        <select name="pet-id" id="pet-visit-id">
+          <option value="pet-id">test</option>
+          <option value="pet-id">blah</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="provider-id">
+          <h3>Where are they going?</h3>
+        </label>
+        <select name="provider-id" id="provider-visit-id">
+          <option value="provider-id">test</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="service-id">
+          <h3>What are they going to do?</h3>
+        </label>
+        <select name="service-id" id="service-visit-id">
+          <option value="service-id">test</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-title">
+          <h3>Title:</h3>
+        </label>
+        <input type="text" name="visit-name" class="form-input" />
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-date">
+          <h3>Date:</h3>
+        </label>
+        <input type="date" name="visit-date" class="form-input" />
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-description">
+          <h3>Description:</h3>
+        </label>
+        <textarea name="visit-description" class="form-input"></textarea>
+      </div>
 
       <button type="submit" class="btn submit-button">
-
         <h2><i class="fas fa-pencil-alt fa-md"></i>Create</h2>
-
       </button>
+
     </form>
   </div>
 </div>

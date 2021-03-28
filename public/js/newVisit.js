@@ -1,21 +1,29 @@
-const newFormHandler = async function(event) {
-  event.preventDefault();
+const newFormHandler = async function (event) {
+    event.preventDefault();
 
-  const title = document.querySelector('input[name="visit-name"]').value;
-  const date_time = document.querySelector('input[name="visit-date"]').value;
-  const notes = document.querySelector('textarea[name="visit-description"]').value;
-  console.log(date_time);
-  const requestBody = JSON.stringify({ title, date_time, notes });
+    const title = document.querySelector('input[name="visit-name"]').value;
+    const date_time = document.querySelector('input[name="visit-date"]').value;
+    const notes = document.querySelector('textarea[name="visit-description"]')
+        .value;
 
-  const response = await fetch(`/api/visits`, {
-    method: 'POST',
-    body: requestBody,
-    headers: { 'Content-Type': 'application/json' }
-  });
+    // need to add more DOMs
+    console.log(date_time);
+    const requestBody = JSON.stringify({ title, date_time, notes });
 
-  document.location.replace('/visit');
+    console.log(requestBody);
+    const response = await fetch(`/api/visits`, {
+        method: "POST",
+        body: requestBody,
+        headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+        document.location.replace("/visit");
+    } else {
+        alert("Something went wrong!");
+    }
 };
 
 document
-  .querySelector('#new-visit-form')
-  .addEventListener('submit', newFormHandler);
+    .querySelector("#new-visit-form")
+    .addEventListener("submit", newFormHandler);

@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 @import "./editPet.css";
 @import "./profile.css";
+@import "./visit.css";
+@import "./todo.css";
+@import "./login.css";
 
 :root {
     --primary-color: #ABDEE6;
@@ -43,7 +46,6 @@ input {
     resize: none;
     padding: 0.2rem;
     margin: 0.5rem;
-    width:fit-content;
 }
 
 .hide {
@@ -70,8 +72,8 @@ input {
     padding-bottom: 10rem;
     margin-left: 10rem;
     margin: auto;
-    max-width: 600px;
-    min-width: 10px;
+    max-width: 900px;
+    min-width: 300px;
     margin: auto;
 }
 
@@ -111,6 +113,16 @@ input {
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
     font-size: 1.2rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-footer p{ 
+    color:black;
 }
 
 .margin-top {
@@ -166,19 +178,6 @@ input {
 .profile-email {
     font-size: 1.5rem;
     line-height: 3rem;
-}
-
-#login-form {
-    margin-top: 20%;
-}
-
-#login-form-title {
-    margin-bottom: 10%;
-}
-
-#login-form-title h1 {
-    font-size: 3rem;
-    font-weight: bold;
 }
 
 #page404 {
@@ -278,15 +277,6 @@ input {
     padding-top: 1rem;
 }
 
-#pawsperity {
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: #8FCACA;
-}
-
-#pawsperity i {
-    color: #55CBCD;
-}
 
 #add-pet {
     border: none;
@@ -367,14 +357,7 @@ input[type="checkbox"] {
 
 
 
-@media only screen and (min-width: 600px) {
-
-
-    #nav {
-        position: fixed;
-        bottom: 0;
-        background-color: var(--primary-color);
-    }
+@media only screen and (min-width: 800px) {
 
     #nav-center {
         display: flex;
@@ -382,7 +365,4 @@ input[type="checkbox"] {
         align-items: center;
     }
 
-    .main-container {
-        border: 10px solid var(--primary-color);
-    }
   }
