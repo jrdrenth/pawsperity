@@ -28,6 +28,7 @@ $(document).ready(() => {
 
             if (response.ok) {
                 console.log("Pet updated!");
+                document.location.href(`/petdetails/${id}`);
             } else {
                 alert("ERR: Failed to update pet!");
             }
@@ -66,7 +67,7 @@ $(document).ready(() => {
             });
 
             if (response.ok) {
-                // Redirect to hom page
+                // Redirect to home page
                 document.location.replace("/");
             } else {
                 alert("ERR: Failed to remove pet");

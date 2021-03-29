@@ -286,6 +286,7 @@ input {
 }
 
 #remove-pet {
+    position: fixed;
     border: none;
     background-color: transparent;
     border-top: 1px solid gray;
@@ -293,9 +294,11 @@ input {
     font-size: 0.8rem;
     opacity: 0.5;
     width: 80%;
+    bottom: 150px;
 }
 
 #remove-todo {
+    position: fixed;
     border: none;
     background-color: transparent;
     border-top: 1px solid gray;
@@ -303,6 +306,7 @@ input {
     font-size: 0.8rem;
     opacity: 0.5;
     width: 80%;
+    bottom: 150px;
 }
 
 #confirm-option .fas,
@@ -380,10 +384,6 @@ input[type="checkbox"] {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    #remove-pet {
-        margin-top: 20%;
     }
 
   }
