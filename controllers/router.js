@@ -7,7 +7,7 @@ const { sequelize } = require("../models/Pet");
 var moment = require("moment"); // require
 moment().format();
 
-const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.APP_DOMAIN_NAME}:${process.env.PORT}`
+const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}`
 
 // const { Sequelize } = require("sequelize/types");
 
@@ -214,8 +214,15 @@ router.get("/visit", withAuth, async (req, res) => {
         // const visits = visitsOrm.map((visit) => visit.get({ plain: true }));
 
         const userId = req.session.user_id;
+
+        const url = `${URL_PREFIX}/api/visits/byuserid/${userId}`
+        console.log("\nAPI URL:");
+        console.log(url);
+        console.log();
+
+
         const response = await fetch(
-            `${URL_PREFIX}/api/visits/byuserid/${userId}`,
+            url,
             {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
@@ -261,9 +268,14 @@ router.get("/visitForm", withAuth, async (req, res) => {
     // User ID
     const userId = req.session.user_id;
 
+    const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`
+    console.log("\nAPI URL:");
+    console.log(url);
+    console.log();
+
     // fetch data of pets
     const petResponse = await fetch(
-        `${URL_PREFIX}/api/pets/byuserid/${userId}`,
+        url,
         {
             method: "GET",
             headers: { "Content-Type": "application/json" },
