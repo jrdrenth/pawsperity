@@ -16,14 +16,15 @@ $(document).ready(() => {
         const time = select('input[name="visit-time"]').value;
         const notes = select('textarea[name="visit-description"]').value;
 
-        const date_time = `${date} ${time}`;
+        //const date_time = `${date} ${time}`;
 
         // need to add more DOMs
         const visitBody = JSON.stringify({
             pet_id: petID,
             service_provider_id: providerID,
             title,
-            date_time,
+            date,
+            time,
             notes,
         });
 

@@ -226,23 +226,20 @@ router.get("/visit", withAuth, async (req, res) => {
         const todayVisits = [];
         const upcomingVisits = [];
 
-        const today = moment(moment().format("YYYY-MM-DD")).toDate();
-        const tomorrow = moment(moment().format("YYYY-MM-DD"))
+        const today = moment(moment().format("YYYY-MM-DD")).set({ h: -7 }).toDate();
+        const tomorrow = moment(moment().format("YYYY-MM-DD")).set({ h: -7 })
             .add(1, "days")
             .toDate();
 
-        visits.forEach((obj) =>
-            console.log(obj.date_time, obj.date_time > today)
-        );
         visits.forEach((obj) => {
             let visit = obj;
-            visit.date_time = moment(
-                visit.date_time,
-                "YYYY-MM-DDTHH:mm:ss.fff"
-            ).toDate();
 
-            if (visit.date_time >= tomorrow) upcomingVisits.push(visit);
-            else if (visit.date_time < today) pastVisits.push(visit);
+            const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff").set({ h: -7 }).toDate();
+
+            console.log(visit.date);
+
+            if (visitDate >= tomorrow) upcomingVisits.push(visit);
+            else if (visitDate < today) pastVisits.push(visit);
             else todayVisits.push(visit);
         });
 
