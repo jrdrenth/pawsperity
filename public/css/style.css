@@ -399,4 +399,8 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
   }
+
+  #login-card-container input {
+    max-width: 500px;
+  }
 }
