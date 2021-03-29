@@ -366,8 +366,12 @@ button:focus {
 }
 
 input[type="checkbox"] {
-    width: 25px;
-    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.checkbox-header {
+    font-size: 1rem;
 }
 
 .completeCheck {
