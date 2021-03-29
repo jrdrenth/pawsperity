@@ -42,15 +42,12 @@ router.post("/logout", (req, res) => {
 router.get("/", withAuth, async (req, res) => {
     const userID = req.session.user_id;
     // fetches api from serverside through userID
-    const response = await fetch(
-        `${URL_PREFIX}/api/pets/byuserid/${userID}`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }
-    );
+    const response = await fetch(`${URL_PREFIX}/api/pets/byuserid/${userID}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 
     // waits for response of fetch
     const responseText = await response.text();
@@ -214,19 +211,15 @@ router.get("/visit", withAuth, async (req, res) => {
 
         const userId = req.session.user_id;
 
-        const url = `${URL_PREFIX}/api/visits/byuserid/${userId}`
+        const url = `${URL_PREFIX}/api/visits/byuserid/${userId}`;
         console.log("\nAPI URL:");
         console.log(url);
         console.log();
 
-
-        const response = await fetch(
-            url,
-            {
-                method: "GET",
-                headers: { "Content-Type": "application/json" },
-            }
-        );
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
         const responseText = await response.text();
         const visits = JSON.parse(responseText);
 
@@ -237,23 +230,28 @@ router.get("/visit", withAuth, async (req, res) => {
         const currentMoment = moment(moment().format("YYYY-MM-DD"));
         const dateTimeNow = currentMoment.toDate();
 
-        console.log('\n\nCURRENT MOMENT:');
+        console.log("\n\nCURRENT MOMENT:");
         console.log(currentMoment);
 
-        console.log('\n\nDATETIME NOW:');
+        console.log("\n\nDATETIME NOW:");
         console.log(dateTimeNow);
-        console.log('\n');
+        console.log("\n");
 
-        const today = moment(moment().format("YYYY-MM-DD")).set({ h: -7 }).toDate();
-        const tomorrow = moment(moment().format("YYYY-MM-DD")).set({ h: -7 })
-            .add(1, "days").toDate();
+        const today = moment(moment().format("YYYY-MM-DD"))
+            .set({ h: -7 })
+            .toDate();
+        const tomorrow = moment(moment().format("YYYY-MM-DD"))
+            .set({ h: -7 })
+            .add(1, "days")
+            .toDate();
         
         console.log('\n\nTODAY:');
         console.log(today);
 
-        console.log('\n\nTOMORROW:');
+        console.log("\n\nTOMORROW:");
         console.log(tomorrow);
-        console.log('\n');
+        
+        console.log("\n");
 
         visits.forEach((obj) => {
             let visit = obj;
@@ -285,19 +283,16 @@ router.get("/visitForm", withAuth, async (req, res) => {
     // User ID
     const userId = req.session.user_id;
 
-    const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`
+    const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`;
     console.log("\nAPI URL:");
     console.log(url);
     console.log();
 
     // fetch data of pets
-    const petResponse = await fetch(
-        url,
-        {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }
-    );
+    const petResponse = await fetch(url, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
     const petResponseText = await petResponse.text();
     const pets = JSON.parse(petResponseText);
 
@@ -313,13 +308,10 @@ router.get("/visitForm", withAuth, async (req, res) => {
     const providers = JSON.parse(providerResponseText);
 
     // fetch data of services // gets all services
-    const servicesResponse = await fetch(
-        `${URL_PREFIX}/api/services/`,
-        {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }
-    );
+    const servicesResponse = await fetch(`${URL_PREFIX}/api/services/`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
     const servicesResponseText = await servicesResponse.text();
     const services = JSON.parse(servicesResponseText);
 

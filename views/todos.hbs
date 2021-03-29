@@ -8,9 +8,11 @@
   {{#each todosNotCompleted}}
   <a href="/todo/{{id}}">
     <div class="card center-this">
-      <div class="card-header flex-row justify-space-between">
+      <div class="checkbox-header">
         <div class="checkbox-align">
-          <h3>{{name}}</h3>
+          <label for="checkbox">
+            <h3>{{name}}</h3>
+          </label>
           <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
         </div>
       </div>

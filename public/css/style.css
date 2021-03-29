@@ -113,6 +113,7 @@ button:focus {
     background-color: #FFCCB6;
     border-radius: 5px;
     padding: 0.3rem;
+    box-shadow: 0 0 3px gray;
 }
 
 .card-header {
@@ -366,8 +367,12 @@ button:focus {
 }
 
 input[type="checkbox"] {
-    width: 25px;
-    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.checkbox-header {
+    font-size: 1rem;
 }
 
 .completeCheck {
@@ -379,8 +384,6 @@ input[type="checkbox"] {
     padding: 1rem;
     margin: 0 3rem;
 }
-
-
 
 @media only screen and (min-width: 800px) {
 
