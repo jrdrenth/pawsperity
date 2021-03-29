@@ -38,11 +38,11 @@
     <div class="card-completed center-this">
       <div class="card-header flex-row justify-space-between text-completed">
         <div class="todoCB checkbox-align">
-          <h3>{{name}}</h3>
+          <p class="todoTitle">{{name}}</p>
           <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
         </div>
         <div class="completeCheck">
-          {{#if is_completed}} Completed {{else}} incomplete {{/if}}
+          {{#if is_completed}}  {{else}} incomplete {{/if}}
         </div>
       </div>
       <div class="card-body">
