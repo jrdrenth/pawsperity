@@ -234,19 +234,24 @@ router.get("/visit", withAuth, async (req, res) => {
         const todayVisits = [];
         const upcomingVisits = [];
 
+        const currentMoment = moment(moment().format("YYYY-MM-DD"));
         const dateTimeNow = currentMoment.toDate();
 
         console.log('\n\nCURRENT MOMENT:');
         console.log(currentMoment);
-        console.log('\n');
 
-        console.log('\n\nNOW:');
+        console.log('\n\nDATETIME NOW:');
         console.log(dateTimeNow);
         console.log('\n');
 
         const today = moment(moment().format("YYYY-MM-DD")).set({ h: -7 }).toDate();
         const tomorrow = moment(moment().format("YYYY-MM-DD")).set({ h: -7 })
             .add(1, "days")
+        
+        console.log('\n\nTODAY:');
+        console.log(today);
+
+        console.log('\n\nTOMORROW:');
         console.log(tomorrow);
         console.log('\n');
 
