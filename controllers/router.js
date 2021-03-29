@@ -7,7 +7,7 @@ const { sequelize } = require("../models/Pet");
 var moment = require("moment"); // require
 moment().format();
 
-const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.APP_PORT}`
+const URL_PREFIX = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}:${process.env.APP_PORT}`
 
 // const { Sequelize } = require("sequelize/types");
 
@@ -246,7 +246,7 @@ router.get("/visit", withAuth, async (req, res) => {
 
         const today = moment(moment().format("YYYY-MM-DD")).set({ h: -7 }).toDate();
         const tomorrow = moment(moment().format("YYYY-MM-DD")).set({ h: -7 })
-            .add(1, "days")
+            .add(1, "days").toDate();
         
         console.log('\n\nTODAY:');
         console.log(today);
