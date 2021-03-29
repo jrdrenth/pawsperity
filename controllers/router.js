@@ -240,6 +240,14 @@ router.get("/visit", withAuth, async (req, res) => {
             .add(1, "days")
             .toDate();
 
+        console.log('\n\nTODAY:');
+        console.log(today);
+        console.log('\n');
+
+        console.log('\n\nTOMORROW:');
+        console.log(tomorrow);
+        console.log('\n');
+
         visits.forEach((obj) => {
             let visit = obj;
 
