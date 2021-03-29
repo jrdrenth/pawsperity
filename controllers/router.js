@@ -7,7 +7,7 @@ const { sequelize } = require("../models/Pet");
 var moment = require("moment"); // require
 moment().format();
 
-const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}`
+const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.APP_PORT}`
 
 // const { Sequelize } = require("sequelize/types");
 
