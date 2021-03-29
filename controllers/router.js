@@ -107,6 +107,35 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
     const allPetTypes = await PetType.findAll({
         raw: true,
     });
+
+    const url = `${URL_PREFIX}/api/visits/bypetid/${petID}`;
+    const response = await fetch(url, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
+
+    const text = await response.json();
+
+    const upcomingDay = [];
+    const currentDay = [];
+    const pastDay = [];
+
+    // filters out to the dates // hopefully lol
+    text.filter((x) => {
+        if (moment.parseZone(x.date) > moment()) {
+            // Upcoming days
+            upcomingDay.push(x);
+        } else if (
+            moment.parseZone(x.date).format("LL") < moment().format("LL")
+        ) {
+            // Past days
+            pastDay.push(x);
+        } else {
+            // Present days
+            currentDay.push(x);
+        }
+    });
+
     const pettypes = allPetTypes.map(({ id, name }) => ({ id, name }));
 
     res.render("petdetails", {
@@ -120,6 +149,9 @@ router.get("/petdetails/:id", withAuth, async (req, res) => {
         createdAt,
         typeName,
         pettypes,
+        upcomingDay,
+        currentDay,
+        pastDay,
     });
 });
 
@@ -282,9 +314,6 @@ router.get("/visitForm", withAuth, async (req, res) => {
     const userId = req.session.user_id;
 
     const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`;
-    console.log("\nAPI URL:");
-    console.log(url);
-    console.log();
 
     // fetch data of pets
     const petResponse = await fetch(url, {

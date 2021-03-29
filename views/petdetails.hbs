@@ -26,8 +26,96 @@
 {{!-- EDIT PET PROMPTS --}}
 {{> editPet}}
 
-{{!-- REMOVE PETS --}}
-{{> removePet}}
+<div class="container">
+    <hr>
+</div>
+
+{{#if currentDay}}
+<div class="container center event-header">
+    <h2>{{name}} has an event today!</h2>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+{{#each currentDay}}
+<div class="container">
+    <div class="detail-list">
+        <div class="date-header">
+            <p>{{this.date}}</p>
+            <p>{{this.time}}</p>
+        </div>
+        <div class="upcoming-title-header center">
+            <p>
+                {{this.title}}
+            </p>
+        </div>
+        <div>
+            <p>
+                {{this.notes}}
+            </p>
+        </div>
+        <div class="break"></div>
+        <div class="service-footer">
+            <div class="center">
+                <p>
+                    {{this.service_provider.name}} | To do:
+                </p>
+            </div>
+            <div class="center">
+                {{#each this.service_provideds}}
+                {{this.service.name}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{/if}}
+
+<div class="container center event-header">
+    <h2>Upcoming events for {{name}}!</h2>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+{{#each upcomingDay}}
+<div class="container">
+    <div class="detail-list">
+        <div class="date-header">
+            <p>{{this.date}}</p>
+            <p>{{this.time}}</p>
+        </div>
+        <div class="upcoming-title-header center">
+            <p>
+                {{this.title}}
+            </p>
+        </div>
+        <div>
+            <p>
+                {{this.notes}}
+            </p>
+        </div>
+        <div class="break"></div>
+        <div class="service-footer">
+            <div class="center">
+                <p>
+                    {{this.service_provider.name}} | To do:
+                </p>
+            </div>
+            <div class="center">
+                {{#each this.service_provideds}}
+                {{this.service.name}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
 
 {{!-- ADDS JQUERY --}}
 {{> jquery}}

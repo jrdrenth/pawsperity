@@ -7,6 +7,7 @@
 @import "./todo.css";
 @import "./login.css";
 @import "./visitHomepage.css";
+@import "./petdetails.css";
 
 :root {
     --primary-color: #ABDEE6;
@@ -291,15 +292,15 @@ button:focus {
 }
 
 #remove-pet {
-    position: fixed;
+    /* position: fixed; */
     border: none;
     background-color: transparent;
     border-top: 1px solid gray;
-    margin-top: 90%;
+    /* margin-top: 90%; */
     font-size: 0.8rem;
     opacity: 0.5;
     width: 80%;
-    bottom: 150px;
+    /* bottom: 150px; */
 }
 
 #remove-todo {
@@ -335,8 +336,10 @@ button:focus {
 }
 
 #delete-container {
+    position: fixed;
     background-color: whitesmoke;
     width: 80%;
+    top: 200px;
     border-radius: 5px;
     margin-top: 5rem;
     box-shadow: 0 5px 10px gray;
@@ -383,6 +386,12 @@ input[type="checkbox"] {
     border-bottom: 1px solid gray;
     padding: 1rem;
     margin: 0 3rem;
+}
+
+#visit-today,
+#visit-upcoming,
+#visit-past {
+    padding-top: 1rem;
 }
 
 @media only screen and (min-width: 800px) {
