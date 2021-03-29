@@ -39,7 +39,8 @@ insert into service_provider (id, name, phone, info, created_at, updated_at)
 values
   (1, 'Northwood Animal Hospital', '(949) 559-1992', '13925 Yale #115\nIrvine, CA 92620', current_timestamp, current_timestamp),
   (2, 'Estrella Pet Grooming', '(949) 496-2968','31105 Rancho Viejo Road\nSan Juan Capistrano, CA 92675', current_timestamp, current_timestamp),
-  (3, 'The Spaw','(714) 669-9074', '14712 Franklin Ave., Unit M\nTustin, CA 92780', current_timestamp, current_timestamp);
+  (3, 'The Spaw','(714) 669-9074', '14712 Franklin Ave., Unit M\nTustin, CA 92780', current_timestamp, current_timestamp),
+  (4, 'Petco', '(949) 262-1400', '15333 Culver Dr. Suite 500\nIrvine, CA 92604', current_timestamp, current_timestamp);
 
 -- Visit
 -- Had to do this funny business when Visit was modeled as a many to many between pet and service_provider, changed it to be two one to manys

@@ -1,5 +1,5 @@
 /* Import fira font */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 @import "./editPet.css";
 @import "./editTodo.css";
 @import "./profile.css";
@@ -10,285 +10,284 @@
 @import "./petdetails.css";
 
 :root {
-    --primary-color: #ABDEE6;
-    --secondary-color: #CBAACB;
-    --tertiary-color: #F3B0C3;
+  --primary-color: #abdee6;
+  --secondary-color: #cbaacb;
+  --tertiary-color: #f3b0c3;
 
-    --off-white-color: #ECEAE4;
-    --white-color: #fff;
-    --dark-color: #333;
+  --off-white-color: #eceae4;
+  --white-color: #fff;
+  --dark-color: #333;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: var(--dark-color);
-    line-height: 1.3rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--dark-color);
+  line-height: 1.3rem;
 }
 
 body {
-    font-family: 'Fira Sans', sans-serif;
-    background-color: var(--off-white-color);
+  font-family: "Fira Sans", sans-serif;
+  background-color: var(--off-white-color);
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 select,
 textarea,
 input {
-    border-color: var(--dark-color);
-    border-radius: 4px;
-    background-color: white;
-    resize: none;
-    padding: 0.2rem;
-    margin: 0.5rem;
+  border-color: var(--dark-color);
+  border-radius: 4px;
+  background-color: white;
+  resize: none;
+  padding: 0.2rem;
+  margin: 0.5rem;
 }
 
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
-.center { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .center-this {
-    margin: 0 auto;
-    width: 100%;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .container {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .main-container {
-    padding-bottom: 10rem;
-    margin-left: 10rem;
-    margin: auto;
-    max-width: 900px;
-    min-width: 300px;
-    margin: auto;
+  padding-bottom: 10rem;
+  margin-left: 10rem;
+  margin: auto;
+  max-width: 900px;
+  min-width: 300px;
+  margin: auto;
 }
 
 .container-thin {
-    padding: 0.4rem;
+  padding: 0.4rem;
 }
 
 .white-text {
-    color: var(--white-color);
+  color: var(--white-color);
 }
 
 .my-button {
-    border-top: 1px solid gray;
-    margin-top: 1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding: 0.4rem;
+  border-top: 1px solid gray;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.4rem;
 }
 
 .submit-button {
-    margin-top: 1rem;
-    border: none;
-    background-color: transparent;
-    border-top: 1px solid gray;
-    padding: 0.4rem;
+  margin-top: 1rem;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid gray;
+  padding: 0.4rem;
 }
 
 .card {
-    width: 90%;
-    height: fit-content;
-    background-color: #FFCCB6;
-    border-radius: 5px;
-    padding: 0.3rem;
-    box-shadow: 0 0 3px gray;
+  width: 90%;
+  height: fit-content;
+  background-color: #ffccb6;
+  border-radius: 5px;
+  padding: 0.3rem;
+  box-shadow: 0 0 3px gray;
 }
 
 .card-header {
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
-    font-size: 1.2rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
 }
 
 .card-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-footer p{ 
-    color:black;
+.card-footer p {
+  color: black;
 }
 
 .margin-top {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .label-align {
-    width: fit-content;
+  width: fit-content;
 }
 
 .break {
-    margin: 0.7rem;
+  margin: 0.7rem;
 }
 
 .form {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .visit-button {
-    border: none;
-    width: 100%;
-    border-bottom: 1px solid gray;
-    background-color: transparent;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
 }
 
 .size-up {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .visit-list-bg > li:nth-child(odd) {
-    /* background-color: #CCE2CB; */
-    background-color: white;
+  /* background-color: #CCE2CB; */
+  background-color: white;
 }
 
 .visit-list {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .profile-email-title {
-    border-bottom: 1px solid grey;
-    width: 50%;
-    margin: 0 auto;
+  border-bottom: 1px solid grey;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .profile-email {
-    font-size: 1.5rem;
-    line-height: 3rem;
+  font-size: 1.5rem;
+  line-height: 3rem;
 }
 
 #page404 {
-    font-size: 5rem;
-    letter-spacing: 1rem;
+  font-size: 5rem;
+  letter-spacing: 1rem;
 }
 
 #nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    justify-content: space-between;
-    background-color: var(--primary-color);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  background-color: var(--primary-color);
 }
 
 #nav-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    line-height: 2rem;
-    text-align: center;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 #nav li {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 #add-new-pet {
-    font-size: 2rem;
-    /* background-color: var(--tertiary-color); */
-    /* border-radius: 10px; */
-    padding: 0.5rem;
-    border: none;
-    border-top: 1px solid gray;
-    background-color: var(--off-white-color);
-    width: 95%;
+  font-size: 2rem;
+  /* background-color: var(--tertiary-color); */
+  /* border-radius: 10px; */
+  padding: 0.5rem;
+  border: none;
+  border-top: 1px solid gray;
+  background-color: var(--off-white-color);
+  width: 95%;
 }
 
 #index-title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 #add-new-visit {
-    border: none;
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:120px;
-    right:20px;
-    background-color: var(--secondary-color);
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    box-shadow: -2px 2px 3px #999;
+  border: none;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 120px;
+  right: 20px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: -2px 2px 3px #999;
 }
 
 .text-completed {
-    opacity: .25;
+  opacity: 0.25;
 }
 
 .text-completed:hover {
-    opacity: 1.0;
+  opacity: 1;
 }
 .card-completed {
-    opacity: .50;
-    width: 90%;
-    height: fit-content;
-    background-color: #FFCCB6;
-    border-radius: 5px;
-    padding: 0.3rem;
+  opacity: 0.5;
+  width: 90%;
+  height: fit-content;
+  background-color: #ffccb6;
+  border-radius: 5px;
+  padding: 0.3rem;
 }
 .card-completed:hover {
-    opacity: 1.0;
+  opacity: 1;
 }
 
 .todo-button {
-    cursor: pointer;
-    margin: auto;
-    width: 50%;
-    border: 3px solid gray;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 1.2rem;
+  cursor: pointer;
+  margin: auto;
+  width: 50%;
+  border: 3px solid gray;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.2rem;
 }
 
-.completed-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid gray;
-    margin: 0 5rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+.completed-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  margin: 0 5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
-
 
 #add-pet {
-    border: none;
-    background-color: transparent;
-    border-top: 1px solid gray;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid gray;
 }
 
 #remove-pet {
@@ -304,35 +303,35 @@ button:focus {
 }
 
 #remove-todo {
-    position: fixed;
-    border: none;
-    background-color: transparent;
-    border-top: 1px solid gray;
-    margin-top: 90%;
-    font-size: 0.8rem;
-    opacity: 0.5;
-    width: 80%;
-    bottom: 150px;
+  position: fixed;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid gray;
+  margin-top: 90%;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  width: 80%;
+  bottom: 150px;
 }
 
 #confirm-option .fas,
 #confirm-option h2 {
-    color: red;
+  color: red;
 }
 
 #confirm-option,
 #cancel-option {
-    border-radius: 5px;
-    background-color: white;
+  border-radius: 5px;
+  background-color: white;
 }
 
 #confirm-option {
-    opacity: 0.4;
-    transition: 0.8s ease-in-out;
+  opacity: 0.4;
+  transition: 0.8s ease-in-out;
 }
 
 #confirm-option:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 #delete-container {
@@ -346,46 +345,46 @@ button:focus {
 }
 
 #delete-container h2 {
-    line-height: 2rem;
+  line-height: 2rem;
 }
 
 #edit-pet {
-    border: none;
-    background-color: transparent;
-    border-top: 1px solid gray;
-    font-size: 1.1rem;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid gray;
+  font-size: 1.1rem;
 }
 #edit-todo {
-    border: none;
-    background-color: transparent;
-    border-top: 1px solid gray;
-    font-size: 1.1rem;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid gray;
+  font-size: 1.1rem;
 }
 
 .checkbox-align {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
 }
 
 input[type="checkbox"] {
-    min-width: 25px;
-    min-height: 25px;
+  min-width: 25px;
+  min-height: 25px;
 }
 
 .checkbox-header {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .completeCheck {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
 
 .upcoming-header {
-    border-bottom: 1px solid gray;
-    padding: 1rem;
-    margin: 0 3rem;
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+  margin: 0 3rem;
 }
 
 #visit-today,
@@ -395,11 +394,9 @@ input[type="checkbox"] {
 }
 
 @media only screen and (min-width: 800px) {
-
-    #nav-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
+  #nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+}
