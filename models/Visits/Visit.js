@@ -53,8 +53,12 @@ Visit.init(
       allowNull: true,
       validate: { isDecimal: true  }
     },
-    date_time: {
-      type: DataTypes.DATE,
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    time: { 
+      type: DataTypes.TIME,
       allowNull: false
     }
   },

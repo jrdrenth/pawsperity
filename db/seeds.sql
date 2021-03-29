@@ -18,12 +18,14 @@ values
   (8, 'Dragon'),
   (9, 'Dinosaur'),
   (10, 'Beast'),
-  (12, 'Pokemon');
+  (12, 'Pokemon'),
+  (13, 'Exotic');
 
 -- Pet
 insert into pet (id, pet_type_id, owner_id, name, dob, gender, created_at, updated_at)
 values
-  (1, 1, 1, 'Rocco', '2015-09-15', 'male', current_timestamp, current_timestamp);
+  (1, 1, 1, 'Rocco', '2015-09-15', 'male', current_timestamp, current_timestamp),
+  (2, 3, 1, 'Buster', '2010-01-29', 'male', current_timestamp, current_timestamp);
 
 -- Todo
 insert into todo (id, user_id, name, description)
@@ -49,17 +51,18 @@ values
 -- /*!40000 ALTER TABLE `service` ENABLE KEYS */;
 -- alter table Visit add constraint visit_ibfk_1 foreign key (pet_id) REFERENCES Pet(id);
 
-insert into visit (id, pet_id, service_provider_id, title, worked_with, notes, is_completed, total_cost, date_time)
+insert into visit (id, pet_id, service_provider_id, title, worked_with, notes, is_completed, total_cost, date, time)
 values
-  (1, 1, 2, 'Rocco Grooming', 'Kat', 'Routine Haircut', false, 85.00, '2021-04-12 08:30:00');
+  (1, 1, 2, 'Rocco Grooming', 'Kat', 'Routine Haircut', false, 85.00, '2021-04-12', '08:30:00');
 
 
 -- ServiceCateory
 insert into service_category (id, name)
 values
   (1, 'Medical'),
-  (2,'Grooming'),
-  (3,'Pet Watching');
+  (2, 'Grooming'),
+  (3, 'Pet Watching'),
+  (4, 'Training');
 
 -- Service
 insert into service (id, service_category_id, name)
@@ -74,7 +77,9 @@ values
   (8, 2, 'Nail Clipping'),
   (9, 2, 'Tooth Brushing'),
   (10, 3, 'Daycare'),
-  (11, 3, 'Boarding');
+  (11, 3, 'Boarding'),
+  (12, 4, 'Obedience Training'),
+  (13, 4, 'Work Pet Training');
 
 -- ServiceProvided
 insert into service_provided (id, visit_id, service_id, performed_by, notes, price)
