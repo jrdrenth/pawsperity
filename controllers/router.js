@@ -235,9 +235,7 @@ router.get("/visit", withAuth, async (req, res) => {
             let visit = obj;
 
             const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff").set({ h: -7 }).toDate();
-
-            console.log(visit.date);
-
+            
             if (visitDate >= tomorrow) upcomingVisits.push(visit);
             else if (visitDate < today) pastVisits.push(visit);
             else todayVisits.push(visit);
