@@ -52,6 +52,7 @@ Credit where credit is due! Thank you for everyone involved in making this proje
   - Express-session
 - MySQL 
 - Sequelize ORM
+- Nodemon
 - And more!
 
 ## CONTRIBUTIONS
