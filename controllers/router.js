@@ -7,7 +7,7 @@ const { sequelize } = require("../models/Pet");
 var moment = require("moment"); // require
 moment().format();
 
-const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}`;
+const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.APP_PORT}`;
 
 // const { Sequelize } = require("sequelize/types");
 
@@ -227,13 +227,29 @@ router.get("/visit", withAuth, async (req, res) => {
         const todayVisits = [];
         const upcomingVisits = [];
 
+        const currentMoment = moment(moment().format("YYYY-MM-DD"));
+        const dateTimeNow = currentMoment.toDate();
+
+        console.log("\n\nCURRENT MOMENT:");
+        console.log(currentMoment);
+
+        console.log("\n\nDATETIME NOW:");
+        console.log(dateTimeNow);
+        console.log("\n");
+
         const today = moment(moment().format("YYYY-MM-DD"))
             .set({ h: -7 })
             .toDate();
         const tomorrow = moment(moment().format("YYYY-MM-DD"))
             .set({ h: -7 })
-            .add(1, "days")
-            .toDate();
+            .add(1, "days");
+
+        console.log("\n\nTODAY:");
+        console.log(today);
+
+        console.log("\n\nTOMORROW:");
+        console.log(tomorrow);
+        console.log("\n");
 
         visits.forEach((obj) => {
             let visit = obj;
