@@ -7,7 +7,7 @@ const { sequelize } = require("../models/Pet");
 var moment = require("moment"); // require
 moment().format();
 
-const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}`
+const URL_PREFIX = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}`;
 
 // const { Sequelize } = require("sequelize/types");
 
@@ -42,15 +42,12 @@ router.post("/logout", (req, res) => {
 router.get("/", withAuth, async (req, res) => {
     const userID = req.session.user_id;
     // fetches api from serverside through userID
-    const response = await fetch(
-        `${URL_PREFIX}/api/pets/byuserid/${userID}`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }
-    );
+    const response = await fetch(`${URL_PREFIX}/api/pets/byuserid/${userID}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 
     // waits for response of fetch
     const responseText = await response.text();
@@ -214,19 +211,15 @@ router.get("/visit", withAuth, async (req, res) => {
 
         const userId = req.session.user_id;
 
-        const url = `${URL_PREFIX}/api/visits/byuserid/${userId}`
+        const url = `${URL_PREFIX}/api/visits/byuserid/${userId}`;
         console.log("\nAPI URL:");
         console.log(url);
         console.log();
 
-
-        const response = await fetch(
-            url,
-            {
-                method: "GET",
-                headers: { "Content-Type": "application/json" },
-            }
-        );
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
         const responseText = await response.text();
         const visits = JSON.parse(responseText);
 
@@ -245,15 +238,10 @@ router.get("/visit", withAuth, async (req, res) => {
         visits.forEach((obj) => {
             let visit = obj;
 
-<<<<<<< HEAD
             const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff")
                 .set({ h: -7 })
                 .toDate();
 
-=======
-            const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff").set({ h: -7 }).toDate();
-            
->>>>>>> 298e85ef03f7f807b0f25d8e0b861a675177488f
             if (visitDate >= tomorrow) upcomingVisits.push(visit);
             else if (visitDate < today) pastVisits.push(visit);
             else todayVisits.push(visit);
@@ -277,19 +265,16 @@ router.get("/visitForm", withAuth, async (req, res) => {
     // User ID
     const userId = req.session.user_id;
 
-    const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`
+    const url = `${URL_PREFIX}/api/pets/byuserid/${userId}`;
     console.log("\nAPI URL:");
     console.log(url);
     console.log();
 
     // fetch data of pets
-    const petResponse = await fetch(
-        url,
-        {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }
-    );
+    const petResponse = await fetch(url, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
     const petResponseText = await petResponse.text();
     const pets = JSON.parse(petResponseText);
 
@@ -305,13 +290,10 @@ router.get("/visitForm", withAuth, async (req, res) => {
     const providers = JSON.parse(providerResponseText);
 
     // fetch data of services // gets all services
-    const servicesResponse = await fetch(
-        `${URL_PREFIX}/api/services/`,
-        {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }
-    );
+    const servicesResponse = await fetch(`${URL_PREFIX}/api/services/`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
     const servicesResponseText = await servicesResponse.text();
     const services = JSON.parse(servicesResponseText);
 
