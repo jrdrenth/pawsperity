@@ -188,7 +188,6 @@ router.get("/todo/:id", withAuth, async (req, res) => {
             pageHeader: "Todo Details",
             icon: "fas fa-info-circle fa-2x",
             todo,
-            
         });
     } catch (err) {
         res.status(500).json(err);
@@ -226,17 +225,20 @@ router.get("/visit", withAuth, async (req, res) => {
         const todayVisits = [];
         const upcomingVisits = [];
 
-        const today = moment(moment().format("YYYY-MM-DD")).set({ h: -7 }).toDate();
-        const tomorrow = moment(moment().format("YYYY-MM-DD")).set({ h: -7 })
+        const today = moment(moment().format("YYYY-MM-DD"))
+            .set({ h: -7 })
+            .toDate();
+        const tomorrow = moment(moment().format("YYYY-MM-DD"))
+            .set({ h: -7 })
             .add(1, "days")
             .toDate();
 
         visits.forEach((obj) => {
             let visit = obj;
 
-            const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff").set({ h: -7 }).toDate();
-
-            console.log(visit.date);
+            const visitDate = moment(visit.date, "YYYY-MM-DDTHH:mm:ss.fff")
+                .set({ h: -7 })
+                .toDate();
 
             if (visitDate >= tomorrow) upcomingVisits.push(visit);
             else if (visitDate < today) pastVisits.push(visit);
