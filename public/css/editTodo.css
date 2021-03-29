@@ -1,9 +1,9 @@
-#edit-popup {
+#edit-popup-todo {
     margin-top: 1rem;
 }
 
-#edit-popup select,
-#edit-popup input {
+#edit-popup-todo select,
+#edit-popup-todo input {
     width: 75%;
 }
 
