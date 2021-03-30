@@ -1,0 +1,36 @@
+{{> pageheader}}
+
+<br>
+<div class="container center">
+    <h1>{{name}}</h1>
+</div>
+
+<div class="container">
+    <hr>
+    <br>
+    <p class="center profile-email-title">Provided Email&nbsp;&nbsp;<i class="fas fa-envelope"></i></p>
+    <p class="center profile-email">{{email}}</p>
+    <br>
+    <br>
+    <p class="center">{{name}} joined on {{createdAt}}</p>
+</div>
+
+<div class="button-container">
+    <a href="/settings" class="my-button size-up">
+        <h3><i class="fas fa-home"></i>Back</h3>
+    </a>
+    <button class="my-button size-up button" id="profile-edit-popper">
+        <h3><i class="fas fa-edit"></i>Edit</h3>
+    </button>
+</div>
+
+<div id="defaultProfile" data-name="{{name}}" data-email="{{email}}"></div>
+
+{{!-- PROFILE EDITOR --}}
+{{> profileEdit}}
+
+{{!-- IMPORTS JQUERY --}}
+{{> jquery}}
+
+{{!-- PROFILE JS --}}
+<script src="/js/profile.js"></script>

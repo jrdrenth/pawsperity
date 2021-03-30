@@ -1,0 +1,20 @@
+<div class="container hide" id="edit-popup-todo" data-id="{{todo.id}}">
+    <h1 class="center">--- New Edit Below ---</h1>
+    <div class="break"></div>
+    <form id="edit-form">
+        <div class="label-design">
+            <label for="name">Title:</label>
+            <input id="edit-title" type="text" name="new-todo-name" placeholder="{{name}}">
+        </div>
+        <div class="label-design">
+            <label for="todo">Description:</label>
+            <input id="edit-description" type="text" name="new-todo-description" placeholder="{{description}}">
+        </div>
+        <div class="button-container">
+            <button type="submit" class="my-button button" id="save-edits-todo"><i class="fas fa-check"></i> Save
+                Edits</button>
+            <button type="button" class="my-button button" id="cancel-edits-todo"><i class="fas fa-times"></i>
+                Cancel</button>
+        </div>
+    </form>
+</div>

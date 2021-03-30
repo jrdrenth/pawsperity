@@ -1,0 +1,26 @@
+{{!-- REMOVE PETS --}}
+<div class="popup-wrapper center">
+    <div class="container center-this hide" id="delete-container" data-id="{{id}}">
+        <h2 class="center">
+            Remove {{name}} from your family list?
+        </h2>
+
+        <div class="button-container center-this">
+            <button type="button" id="confirm-option" class="my-button">
+                <h2><i class="fas fa-heart-broken"></i> Confirm</h2>
+            </button>
+            <button id="cancel-option" class="my-button">
+                <h2>
+                    <i class="fas fa-window-close"></i> Cancel
+                </h2>
+            </button>
+        </div>
+    </div>
+</div>
+
+{{!-- Remove pet prompt initializer --}}
+<div class="button-container">
+    <button id="remove-pet" class="my-button">
+        <h2><i class="fas fa-eye-slash"></i> Remove</h2>
+    </button>
+</div>

@@ -1,0 +1,30 @@
+.detail-list {
+    background-color: #FEE1E8;
+    padding: 0.5rem;
+    height: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 0 5px gray;
+}
+
+.date-header {
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
+}
+
+.upcoming-title-header {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.service-footer {
+    padding: 0.3rem;
+    background-color: #FFC5BF;
+    border-radius: 5px;
+}
+
+.event-header {
+    margin-top: 0.3rem;
+}

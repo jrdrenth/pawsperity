@@ -1,0 +1,159 @@
+{{> pageheader}}
+
+<div class="visit-list-container center">
+  <button class="visit-button" id="visit-today">
+    <h1>TODAY <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each todayVisits}}
+        <li>
+          <div class="container">
+
+            <div class="card">
+
+              <div class="visit-date time-stamps">
+                <h2>{{this.date}}</h2>
+                <h2>{{this.time}}</h2>
+              </div>
+
+              <div class="info">
+                <div class="visit-title">
+                  <h2>{{this.title}}</h2>
+                </div>
+                <div class="break"></div>
+                <div class="visit-info">
+                  <p>Services Needed:</p>
+                  <ul>
+                    {{#each this.service_provideds}}
+                    <li>{{this.service.name}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="visit-info">
+
+                  <p>{{this.pet.name}} has an appointment at {{this.service_provider.name}}</p>
+
+                </div>
+
+                <div class="break"></div>
+                <div class="visit-info visit-notes">
+                  <div>NOTES:</div>
+                  {{this.notes}}
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </button>
+</div>
+
+<div class="visit-list-container center">
+  <button class="visit-button" id="visit-upcoming">
+    <h1>UPCOMING VISITS <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each upcomingVisits}}
+        <li>
+          <div class="container">
+
+            <div class="card">
+
+              <div class="visit-date time-stamps">
+                <h2>{{this.date}}</h2>
+                <h2>{{this.time}}</h2>
+              </div>
+
+              <div class="info">
+                <div class="visit-title">
+                  <h2>{{this.title}}</h2>
+                </div>
+                <div class="break"></div>
+                <div class="visit-info">
+                  <p>Services Needed:</p>
+                  <ul>
+                    {{#each this.service_provideds}}
+                    <li>{{this.service.name}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="visit-info">
+                  <p>{{this.pet.name}} has an appointment at {{this.service_provider.name}}</p>
+                </div>
+
+                <div class="break"></div>
+                <div class="visit-info visit-notes">
+                  <div>NOTES:</div>
+                  {{this.notes}}
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </li>
+        {{/each}}
+        <li>
+      </ul>
+    </div>
+  </button>
+</div>
+
+<div class="visit-list-container center">
+  <button class="visit-button" id="visit-past">
+    <h1>PAST VISITS <i class="fas fa-chevron-down"></i></h1>
+    <br>
+    <div class="hide">
+      <ul>
+        {{#each pastVisits}}
+        <li>
+          <div class="container">
+
+            <div class="card">
+
+              <div class="visit-date time-stamps">
+                <h2>{{this.date}}</h2>
+                <h2>{{this.time}}</h2>
+              </div>
+
+              <div class="info">
+                <div class="visit-title">
+                  <h2>{{this.title}}</h2>
+                </div>
+                <div class="break"></div>
+                <div class="visit-info">
+                  <p>Services Needed:</p>
+                  <ul>
+                    {{#each this.service_provideds}}
+                    <li>{{this.service.name}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="visit-info">
+                  <p>{{this.pet.name}} has an appointment at {{this.service_provider.name}}</p>
+                </div>
+
+                <div class="break"></div>
+                <div class="visit-info visit-notes">
+                  <div>NOTES:</div>
+                  {{this.notes}}
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </button>
+</div>
+
+<a href="/visitForm"><button id="add-new-visit"><i class="fas fa-edit fa-2x"></i></button></a>
+
+{{> jquery}}
+<script src="/js/visitCSS.js"></script>

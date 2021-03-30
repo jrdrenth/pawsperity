@@ -1,0 +1,44 @@
+Static Nav Bar
+- Home button (Pets Page)
+- Todo tab
+- Visits tab (for all pets, add/schedule new visit, edit visit, etc.)
+- Settings (hamburger bar, logout, etc)
+
+Login Page:
+
+Register Page:
+
+Home Page:
+- List of Pets (Pet name, photo?)
+  - Add Pet
+- Todo List
+- Upcoming Appointments (anything with future date)
+
+Pet Page:
+- Name
+- Type
+- DOB
+- Gender
+- Visits
+MAYBE
+- Medications
+- Vaccinations
+- Hide Pet
+
+
+TODO Page:
+- List of Todos
+- Add Todo
+- Mark Completed
+
+Visits Page:
+- List of Visits (Pet Name, Description of Visit, Date)
+- Add Visit
+- Edit Visit (Change appt date, Add service - groom, day care, annual exam, etc.)
+- Cancel Appointment (remove future visit)
+
+Settings Page:
+- Update Email
+- Update Password
+- Logout
+

@@ -1,0 +1,28 @@
+{{> pageheader}}
+
+{{#each pets}}
+<div class="container center">
+
+    <div class="card">
+        <a href="/petdetails/{{this.id}}">
+            <div class="card-header">
+                <i class="{{this.icon}}"></i>
+            </div>
+            <div class="card-title">
+                <h2>{{this.name}}</h2>
+            </div>
+            <div class="card-body">
+                <p>{{this.dob}}</p>
+            </div>
+            <div class="card-footer">
+                <p>{{this.gender}}</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+{{/each}}
+
+<div class="container center">
+    <a href="/addpet" id="add-new-pet"><i class="fas fa-plus"></i>ADD NEW PET</a>
+</div>

@@ -1,0 +1,156 @@
+=====================================
+Pets & Owners
+=====================================
+
+User
+- UserId
+- Name
+- Email
+- Password
+
+Pet
+- PetId
+- PetTypeId
+- Name
+- DOB
+- Gender
+
+PetType
+- PetTypeId
+- Name
+
+Todo
+- Id
+- Description
+
+
+=============================
+Visits (Day Care, Vet Visit, Grooming Visit, Appointments)
+=============================
+
+ServiceProvider
+- ServiceProviderId
+- Name
+- Phone
+- Notes (put address here)
+-XXXX AddressId
+
+Visit
+- VisitId
+- PetId
+- ServiceProviderId
+- Description, nullable
+- WorkedWith
+- Notes
+- IsVisitCompleted (true/false)
+- DateTime
+
+ServiceProvided
+- ServiceProvidedId
+- VisitId
+- ServiceId
+- Cost
+
+Service (general checkup, vaccinate, haircut, nail clipping, brush teeth, day care, neuter, spay)
+- ServiceId
+- ServiceCategoryId (optional)
+- Name
+
+ServiceCategory (Grooming, Veteranarian, etc.)
+- ServiceTypeId
+- Name
+
+=======================
+-- Medication
+=======================
+
+PetMedication
+- PetMedicationId
+- PetId
+- MedicationId
+- Dosage
+- Frequency
+- Notes
+- StartDate
+- EndDate, nullable
+
+Medication
+- MedicationId
+- Name
+
+
+=======================
+-- Vaccines
+=======================
+PetVaccine
+- PetVaccineId
+- PetId
+- VaccineId
+- Notes
+- DateAdministered, nullable
+- DueDate, nullable
+
+Vaccine
+- VaccineId
+- Name
+- ExpirationTime (1 year, 3 years, etc.)
+
+
+##############################################################
+
+
+
+
+=========================================
+
+ServiceOffered
+- ServiceOfferedId
+- ServiceProviderId
+- ServiceId
+
+Address
+- AddressId
+- StreetAddressLine1
+- StreetAddressLine2
+- City
+- StateId
+- Zip
+
+
+
+
+
+========================================
+LOWEST PRIORITY
+========================================
+
+PetOwner
+- PetOwnerId
+- IsPrimary
+- UserId
+- PetId
+
+=======================
+-- Food
+=======================
+PetFood
+- PetFoodId
+- PetId
+- FoodId
+- Amount, nullable
+- Frequency, nullable
+- Notes
+- StartDate, nullable
+- EndDate, nullable
+
+Food
+- FoodId
+- Name
+
+
+
+State
+- StateId
+- Name
+- Abbreviation
+

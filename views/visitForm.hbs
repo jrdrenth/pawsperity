@@ -1,0 +1,83 @@
+{{> pageheader}}
+
+<div class="container center">
+  <div class="post card">
+    <div class="post-card-header">
+      <h2>Visit</h2>
+    </div>
+    <form id="new-visit-form" class="card-body">
+
+      <div class="input-container">
+        <label for="pet-id">
+          <h3>Who is visiting?</h3>
+        </label>
+        <select name="pet-id" id="pet-visit-id">
+          {{#each pets}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="provider-id">
+          <h3>Where are they going?</h3>
+        </label>
+        <select name="provider-id" id="provider-visit-id">
+          {{#each providers}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="service-id">
+          <h3>What are they going to do?</h3>
+        </label>
+        <select name="service-id" id="service-visit-id">
+          {{#each services}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-title">
+          <h3>Title:</h3>
+        </label>
+        <input type="text" name="visit-name" class="form-input" />
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-date">
+          <h3>Date:</h3>
+        </label>
+        <input type="date" name="visit-date" class="form-input" />
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-time">
+          <h3>Time:</h3>
+        </label>
+        <input type="time" name="visit-time" class="form-input" />
+      </div>
+
+      <div class="input-container">
+        <label class="form-label" for="visit-description">
+          <h3>Notes:</h3>
+        </label>
+        <textarea name="visit-description" class="form-input"></textarea>
+      </div>
+
+      <button type="submit" class="btn submit-button">
+        <h2><i class="fas fa-pencil-alt fa-md"></i>Create</h2>
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{{!-- jquery --}}
+{{> jquery}}
+
+{{!-- Front JS --}}
+<script src="/js/newVisit.js"></script>

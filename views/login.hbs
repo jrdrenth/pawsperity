@@ -1,0 +1,31 @@
+<div id="login-form" class="container">
+
+    {{> mainTitle}}
+
+    <div id="login-card-container" class="center">
+        <div class="card">
+            <h1 class="card-title post-card-header">Login</h1>
+            <div class="card-body">
+                <form id="login-form">
+                    <label for="email-login" class="label-align">EMAIL:</label><br>
+                    <input type="email" id="email-login" placeholder="email"><br>
+                    <label for="password-login" class="label-align">PASSWORD:</label><br>
+                    <input type="password" id="password-login" placeholder="password"><br>
+
+                    <div class="break"></div>
+
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+            <div class="card-footer">
+                <a href="/signup">
+                    <p>Sign Up For An Account!</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="./js/login.js"></script>

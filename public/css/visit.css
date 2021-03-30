@@ -1,0 +1,35 @@
+.post-card-header {
+  padding: 1rem;
+}
+
+#new-visit-form {
+  padding: 1rem;
+}
+
+#new-visit-form label {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+#new-visit-form select,
+#new-visit-form input,
+#new-visit-form textarea {
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+#new-visit-form textarea {
+  height: 5rem;
+}
+
+.input-container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.visit-info li {
+  display: flex;
+  justify-content: flex-start;
+}

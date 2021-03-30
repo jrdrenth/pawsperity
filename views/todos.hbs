@@ -1,0 +1,61 @@
+{{> pageheader}}
+
+<div class="container">
+  <h2 class="center upcoming-header"><i class="fas fa-exclamation"></i>&nbsp;Upcoming</h2>
+</div>
+
+<div class="container">
+  {{#each todosNotCompleted}}
+  <a href="/todo/{{id}}">
+    <div class="card center-this">
+      <div class="checkbox-header">
+        <div class="checkbox-align">
+          <label for="checkbox">
+            <h3>{{name}}</h3>
+          </label>
+          <input type="checkbox" class="accept" data-id={{id}} data-newcomplete={{is_completed}} />
+        </div>
+      </div>
+      <div class="card-body">
+        {{body}}
+      </div>
+    </div>
+  </a>
+
+  <br>
+  {{/each}}
+</div>
+
+<div class="container">
+  <hr>
+  <div class="completed-header">
+    <h2><i class="far fa-check-square"></i> Completed</h2>
+  </div>
+</div>
+<div class="container">
+  {{#each todosCompleted}}
+  <a href="/todo/{{id}}">
+    <div class="card-completed center-this">
+      <div class="card-header flex-row justify-space-between text-completed">
+        <div class="todoCB checkbox-align">
+          <h3>{{name}}</h3>
+          <input type="checkbox" class="accept" data-id={{id}} checked data-newcomplete={{is_completed}} />
+        </div>
+        <div class="completeCheck">
+          {{#if is_completed}} Completed {{else}} incomplete {{/if}}
+        </div>
+      </div>
+      <div class="card-body">
+        {{body}}
+      </div>
+    </div>
+  </a>
+
+  <br>
+  {{/each}}
+</div>
+
+<a href="/todo"><button id="add-new-visit"><i class="fas fa-edit fa-2x"></i></button></a>
+
+{{> jquery}}
+<script src="/js/checked.js"></script>

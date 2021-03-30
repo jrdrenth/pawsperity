@@ -1,0 +1,112 @@
+
+.visit-list-container .card {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.time-stamps {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid rgba(203, 170, 203, 0.4);
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 0 10px gray;
+}
+
+.time-stamps h2 {
+    padding: 0.5rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.visit-info {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+}
+
+.visit-notes {
+    background-color: #FFD8BE;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px gray;
+} 
+
+@media only screen and (max-width: 800px) {
+
+    .visit-list-container {
+        padding: 1.5rem;
+        display: block;
+    }
+
+    .visit-list-container .card {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        flex-wrap: wrap;
+        box-shadow: 0 0 5px gray;
+    }
+
+    .time-stamps {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 0.3rem;
+        margin-bottom: 1rem;
+
+
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid gray;
+        box-shadow: none;
+
+
+    }
+
+    .time-stamps h2 {
+        padding: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .info h2 {
+        font-size: 1.2rem;
+    }
+
+    .visit-info {
+        font-size: 1rem;
+        padding: 0.3rem;
+        flex-wrap: wrap;
+    }
+
+    .visit-notes {
+        background-color: #FFD8BE;
+        padding: 0.5rem;
+        border-radius: 5px;
+        box-shadow: 0 0 2px gray;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+}
