@@ -271,10 +271,11 @@ router.get("/visit", withAuth, async (req, res) => {
 
         const today = moment(moment().format("YYYY-MM-DD"))
             .set({ h: -7 })
+            .add(-1, "days") // this is because Heroku is UTC and we cannot get it to work after 5pm
             .toDate();
         const tomorrow = moment(moment().format("YYYY-MM-DD"))
             .set({ h: -7 })
-            .add(1, "days")
+            //.add(1, "days")
             .toDate();
         
         console.log('\n\nTODAY:');
