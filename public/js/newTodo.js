@@ -16,5 +16,5 @@ const newFormHandler = async function(event) {
 };
 
 document
-  .querySelector('#new-todo-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('#new-todo-button')
+  .addEventListener('click', newFormHandler);
