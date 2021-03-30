@@ -90,3 +90,24 @@ values
   (3, 1, 8, 'Kat', null, null),
   (4, 1, 9, 'Kat', null, 10.00),
   (5, 1, 10, 'Staff', null, null);
+
+
+-- Can use the following query to view visit data, or get it from Postman
+-- select visit.id as 'visit.id',
+-- 	user.name as owner,
+-- 	pet.name as pet,
+--     sp.name as provider,
+--     visit.title as visit,
+--     visit.date,
+--     visit.time,
+--     service.name as 'service provided',
+--     category.name as 'service category'
+-- from visit visit
+-- inner join pet pet on visit.pet_id = pet.id
+-- inner join pet_type petType on pet.pet_type_id = petType.id
+-- inner join user user on pet.owner_id = user.id
+-- inner join service_provider sp on visit.service_provider_id = sp.id
+-- left join service_provided provided on visit.id = provided.visit_id
+-- left join service service on provided.service_id = service.id
+-- left join service_category category on service.service_category_id = category.id
+-- order by visit.id desc;

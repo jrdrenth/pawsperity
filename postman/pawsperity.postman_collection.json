@@ -23,12 +23,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -56,12 +56,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -89,12 +89,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -129,12 +129,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/byuserid/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/byuserid/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -160,12 +160,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -190,12 +190,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/3",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/3",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -225,12 +225,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/types/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/types/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -259,12 +259,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/types/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/types/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -293,12 +293,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/types/10",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/types/10",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -324,12 +324,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/types/10",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/types/10",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -355,12 +355,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/pets/types/11",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/pets/types/11",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"pets",
@@ -391,12 +391,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -424,12 +424,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -457,12 +457,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -487,12 +487,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -517,12 +517,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/12",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/12",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -552,12 +552,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/categories/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/categories/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -586,12 +586,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/categories/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/categories/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -620,12 +620,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/categories/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/categories/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -651,12 +651,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/categories/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/categories/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -682,12 +682,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/categories/4",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/categories/4",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -718,12 +718,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -752,12 +752,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -786,12 +786,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -820,12 +820,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/byvisitid/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/byvisitid/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -852,12 +852,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/5",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/5",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -883,12 +883,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/provided/10",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/provided/10",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -919,12 +919,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/providers/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/providers/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -953,12 +953,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/providers/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/providers/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -987,12 +987,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/providers/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/providers/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -1018,12 +1018,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/providers/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/providers/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -1049,12 +1049,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/services/providers/4",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/services/providers/4",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"services",
@@ -1085,12 +1085,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1118,12 +1118,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1151,12 +1151,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/2",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/2",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1191,12 +1191,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/byuserid/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/byuserid/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1222,12 +1222,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/2",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/2",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1252,12 +1252,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/todos/8",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/todos/8",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"todos",
@@ -1287,12 +1287,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/users/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/users/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"users",
@@ -1320,12 +1320,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/users/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/users/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"users",
@@ -1353,12 +1353,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/users/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/users/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"users",
@@ -1383,12 +1383,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/users/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/users/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"users",
@@ -1418,12 +1418,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1451,12 +1451,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1484,12 +1484,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/5",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/5",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1517,12 +1517,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/bypetid/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/bypetid/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1551,12 +1551,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/byproviderid/2",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/byproviderid/2",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1585,12 +1585,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/byuserid/1",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/byuserid/1",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1616,12 +1616,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/5",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/5",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
@@ -1646,12 +1646,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/visits/5",
-							"protocol": "http",
+							"raw": "{{APP_PROTOCOL}}://{{APP_HOST}}:{{APP_PORT}}/api/visits/5",
+							"protocol": "{{APP_PROTOCOL}}",
 							"host": [
-								"localhost"
+								"{{APP_HOST}}"
 							],
-							"port": "3001",
+							"port": "{{APP_PORT}}",
 							"path": [
 								"api",
 								"visits",
