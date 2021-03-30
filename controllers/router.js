@@ -177,12 +177,12 @@ router.get("/todos", withAuth, async (req, res) => {
         const todosNotCompletedData = await Todo.findAll({
             // query for not completed todo in todo models
             where: {
-                is_completed: false,
+                is_completed: false, user_id: userId = req.session.user_id
             },
         });
         const todosCompletedData = await Todo.findAll({
             where: {
-                is_completed: true,
+                is_completed: true, user_id: userId = req.session.user_id
             },
         });
 
