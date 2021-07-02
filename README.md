@@ -25,6 +25,13 @@ Welcome to Pawsperity, a happy place to where you and your smaller and most loya
 - [Eric's Github](https://github.com/erictn3)
 - [Jonathan's Github](https://github.com/sksmejn)
 
+![image](https://user-images.githubusercontent.com/72526902/124320990-c0d50b00-db31-11eb-832f-1f0092b84a2f.png)
+![image](https://user-images.githubusercontent.com/72526902/124321142-0abdf100-db32-11eb-906f-5b0c73632fda.png)
+![image](https://user-images.githubusercontent.com/72526902/124321217-2e813700-db32-11eb-9ed9-1ce592bcec34.png)
+![image](https://user-images.githubusercontent.com/72526902/124321288-4c4e9c00-db32-11eb-8b1f-58ec521bc76f.png)
+
+
+
 ## INSTALL
 
 No need to install this app! Just visit us at the provided link to the [website!](https://infinite-lowlands-76487.herokuapp.com/)
