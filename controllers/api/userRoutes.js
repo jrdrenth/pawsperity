@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { ValidationError } = require('sequelize');
 
 const moment = require('moment');
 moment().format();
@@ -48,7 +49,15 @@ router.post('/', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    // message = err
+    // if (err instanceof ValidationError) {
+
+    //   message = err.errors[0].message
+    // }
+    res
+      .status(400)
+      .json(err);
+
   }
 });
 
